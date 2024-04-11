@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use EquipeTournoiJModel;
 
 class MatchJModel extends Model
 {
@@ -43,6 +44,6 @@ class MatchJModel extends Model
 
     public function typeMatch()
     {
-        return $this->belongsTo(TypeMatchJModel::class, 'id_type');
+        return $this->belongsTo(TypeMatchModel::class, 'id_type');
     }
 }

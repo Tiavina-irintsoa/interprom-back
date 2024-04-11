@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Models;
-
 use CodeIgniter\Model;
 
-class TournoiModel extends Model
+class TournoiJModel extends Model
 {
     protected $table = 'tournoi';
     protected $primaryKey = 'id_tournoi';
