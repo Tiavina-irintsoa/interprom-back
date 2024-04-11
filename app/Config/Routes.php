@@ -9,12 +9,15 @@ $routes->get('/', 'TestDatabase::index');
 
 $routes->group('api', function($routes)
 {
-    $routes->resource('utilisateur', ['controller' => 'TestDatabase']);
+    $routes->resource('utilisateur', ['controller' => 'UtilisateurJController']);
     $routes->resource('discipline', ['controller' => 'DisciplineJController']);
     $routes->resource('matchs', ['controller' => 'MatchController']);
     
     $routes->resource('poule', ['controller' => 'PouleJController']);
 });
+
+$routes->post('login','LoginController::index');
+$routes->post('/api/matchs/update_score', 'MatchController::update_score');
 
 // Routes à propos des équipes
 $routes->get('api/equipes/tournoi/(:num)', 'EquipeController::tournoi/$1');

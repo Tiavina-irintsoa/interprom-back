@@ -23,10 +23,19 @@ class UtilisateurJController extends ResourceController
     // -X POST
     public function create(): ResponseInterface
     {
+        helper(['form', 'url']);
         $model = new UtilisateurJModel();
         $data = $this->request->getJSON();
-
-        if ($model->insert($data)) {
+        $rules = [
+            'nom' => 'required|min_length[2]',
+            'mdp' => 'required|min_length[8]|regex_match[/^\S*$/]',
+        ];
+        if (!$this->validate($rules)) {
+            return $this->failValidationErrors($this->validator->getErrors());
+        }
+        $dataArray = (array) $data;
+        $dataArray['mdp'] = password_hash($dataArray['mdp'], PASSWORD_DEFAULT);
+        if ($model->insert($dataArray)) {
             return $this->respondCreated(['message' => 'Utilisateur créé avec succès']);
         } else {
             return $this->failServerError('Erreur lors de la création de l\'utilisateur');
