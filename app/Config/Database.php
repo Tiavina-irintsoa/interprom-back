@@ -79,8 +79,8 @@ class Database extends Config
        public array $default = [
            'DSN'        => '',
            'hostname'   => 'localhost',
-           'username'   => 'postgres',
-           'password'   => 'root',
+           'username'   => 'madaebvx_ituser',
+           'password'   => '{wlks7jdg^Pr',
            'database'   => 'madaebvx_itusport',
            'schema'     => 'public',
            'DBDriver'   => 'Postgre',
