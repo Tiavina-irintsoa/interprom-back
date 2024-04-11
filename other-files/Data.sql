@@ -4,11 +4,16 @@ CREATE DATABASE madaebvx_itusport;
 CREATE ROLE madaebvx_ituser WITH LOGIN PASSWORD '{wlks7jdg^Pr';
 GRANT ALL PRIVILEGES ON DATABASE madaebvx_itusport TO madaebvx_ituser;
 
-
 CREATE  TABLE "public".discipline ( 
 	id_discipline        serial  NOT NULL  ,
 	nom                  varchar  NOT NULL  ,
 	CONSTRAINT pk_discipline PRIMARY KEY ( id_discipline )
+ );
+
+CREATE  TABLE "public".equipe ( 
+	id_equipe            serial  NOT NULL  ,
+	nom_equipe           varchar  NOT NULL  ,
+	CONSTRAINT pk_equipe PRIMARY KEY ( id_equipe )
  );
 
 CREATE  TABLE "public".poule ( 
@@ -39,21 +44,15 @@ CREATE  TABLE "public".utilisateur (
 	CONSTRAINT pk_utilisateur PRIMARY KEY ( id )
  );
 
-CREATE  TABLE "public".equipe ( 
-	id_equipe            serial  NOT NULL  ,
-	nom_equipe           varchar  NOT NULL  ,
-	id_poule             integer  NOT NULL  ,
-	CONSTRAINT pk_equipe PRIMARY KEY ( id_equipe ),
-	CONSTRAINT fk_equipe_poule FOREIGN KEY ( id_poule ) REFERENCES "public".poule( id_poule )   
- );
-
 CREATE  TABLE "public".equipe_tournoi ( 
 	id_equipe_tournoi    serial  NOT NULL  ,
 	id_equipe            integer  NOT NULL  ,
 	id_tournoi           integer  NOT NULL  ,
+	id_poule             integer  NOT NULL  ,
 	CONSTRAINT pk_equipe_tournoi PRIMARY KEY ( id_equipe_tournoi ),
 	CONSTRAINT fk_equipe_tournoi_equipe FOREIGN KEY ( id_equipe ) REFERENCES "public".equipe( id_equipe )   ,
-	CONSTRAINT fk_equipe_tournoi_tournoi FOREIGN KEY ( id_tournoi ) REFERENCES "public".tournoi( id_tournoi )   
+	CONSTRAINT fk_equipe_tournoi_tournoi FOREIGN KEY ( id_tournoi ) REFERENCES "public".tournoi( id_tournoi )   ,
+	CONSTRAINT fk_equipe_tournoi_poule FOREIGN KEY ( id_poule ) REFERENCES "public".poule( id_poule )   
  );
 
 CREATE  TABLE "public"."match" ( 
@@ -76,24 +75,14 @@ CREATE  TABLE "public"."match" (
 	CONSTRAINT fk_match_type_match FOREIGN KEY ( id_type ) REFERENCES "public".type_match( id_type_match )   
  );
 
-CREATE  TABLE "public".poule_tournoi ( 
-	id_poule_tournoi     serial  NOT NULL  ,
-	id_poule             integer  NOT NULL  ,
-	id_tournoi           integer  NOT NULL  ,
-	CONSTRAINT pk_poule_tournoi PRIMARY KEY ( id_poule_tournoi ),
-	CONSTRAINT fk_poule_tournoi_poule FOREIGN KEY ( id_poule ) REFERENCES "public".poule( id_poule )   ,
-	CONSTRAINT fk_poule_tournoi_tournoi FOREIGN KEY ( id_tournoi ) REFERENCES "public".tournoi( id_tournoi )   
- );
-
 CREATE  TABLE "public".resultat ( 
 	id_resultat          serial  NOT NULL  ,
-	id_equipe            integer  NOT NULL  ,
+	id_equipe_tournoi    integer  NOT NULL  ,
 	id_match             integer  NOT NULL  ,
 	point                integer  NOT NULL  ,
 	score_marque         integer  NOT NULL  ,
 	score_encaisse       integer  NOT NULL  ,
 	CONSTRAINT pk_resultat PRIMARY KEY ( id_resultat ),
-	CONSTRAINT fk_resultat_equipe FOREIGN KEY ( id_equipe ) REFERENCES "public".equipe( id_equipe )   ,
-	CONSTRAINT fk_resultat_match FOREIGN KEY ( id_match ) REFERENCES "public"."match"( id_match )   
+	CONSTRAINT fk_resultat_match FOREIGN KEY ( id_match ) REFERENCES "public"."match"( id_match )   ,
+	CONSTRAINT fk_resultat_equipe_tournoi FOREIGN KEY ( id_equipe_tournoi ) REFERENCES "public".equipe_tournoi( id_equipe_tournoi )   
  );
-

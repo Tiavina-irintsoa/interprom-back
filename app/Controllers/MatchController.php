@@ -1,30 +1,15 @@
-<?php namespace App\Controllers;
+<?php
 
-use App\Models\MatchModel;
+namespace App\Controllers;
+
+use App\Controllers\BaseController;
+use App\Models\VMatchLibModel;
+use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 
-class MatchController extends ResourceController
-{
-    protected $modelName = 'App\Models\MatchModel';
+class MatchController extends ResourceController{
     protected $format = 'json';
 
-    // Méthode pour récupérer tous les matchs
-    public function index()
-    {
-        $model = new MatchModel();
-        $data = $model->findAll();
-        return $this->respond($data);
-    }
-
-    // Méthode pour récupérer un match par son ID
-    public function show($id = null)
-    {
-        $model = new MatchModel();
-        $data = $model->find($id);
-        return $this->respond($data);
-    }
-
-    // Méthode pour créer un nouveau match
     public function create()
     {
         $model = new MatchModel();
@@ -32,8 +17,6 @@ class MatchController extends ResourceController
         $model->insert($data);
         return $this->respondCreated($data);
     }
-
-    // Méthode pour mettre à jour un match
     public function update($id = null)
     {
         $model = new MatchModel();
@@ -41,9 +24,19 @@ class MatchController extends ResourceController
         $model->update($id, $data);
         return $this->respond($data);
     }
+    // Match par discipline par tournoi selon ordered by prevision date
+    public function list_match_by_discipline($id_discipline, $id_tournoi)
+    {
+        $model = new VMatchLibModel();
+        $matchs = $model->where('id_tournoi', $id_tournoi)->where('id_discipline', $id_discipline)->findAll();
 
+        $data = [
+            'status' => 1,
+            'data' => $matchs
+        ];
 
-
+        return $this->respond($data);
+    }
     public function update_score(){
         $model = new MatchModel();
         $data=$this->request->getJSON();

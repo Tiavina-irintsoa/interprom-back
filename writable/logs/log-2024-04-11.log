@@ -27,6 +27,20 @@ in SYSTEMPATH/CodeIgniter.php on line 904.
  6 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')
 CRITICAL - 2024-04-11 11:11:45 --> Error: Call to undefined method App\Controllers\DisciplineJController::initController()
 [Method: GET, Route: api/discipline]
+in APPPATH/Models/DisciplineJModel.php on line 7.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(317): include_once()
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 3 SYSTEMPATH/Autoloader/Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 5 SYSTEMPATH/RESTful/BaseResource.php(69): class_exists()
+ 6 SYSTEMPATH/RESTful/BaseResource.php(51): CodeIgniter\RESTful\BaseResource->setModel()
+ 7 SYSTEMPATH/CodeIgniter.php(904): CodeIgniter\RESTful\BaseResource->initController()
+ 8 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')
 in SYSTEMPATH/CodeIgniter.php on line 904.
  1 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
  2 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
