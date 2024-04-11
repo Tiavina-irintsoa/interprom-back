@@ -16,12 +16,20 @@ $routes->group('api', function($routes)
     $routes->resource('poule', ['controller' => 'PouleJController']);
 });
 
+// Login
 $routes->post('login','LoginController::index');
+
+// Routes qui ont besoin d authentification (id utilisateur dans headers)
+$routes->get('api/equipes/tournoi', 'EquipeController::tournoi',['filter' => \App\Filters\TokenFilter::class]);
+
+
+
+
 $routes->post('/api/matchs/update_score', 'MatchController::update_score');
 
 // Routes à propos des équipes
 $routes->get('api/equipes/tournoi/(:num)', 'EquipeController::tournoi/$1');
-$routes->get('api/equipes/tournoi', 'EquipeController::tournoi');
+// $routes->get('api/equipes/tournoi', 'EquipeController::tournoi');
 
 // A propos des matchs
 $routes->get('matchs/all/(:num)/(:num)', 'MatchController::list_match_by_discipline/$1/$2');
