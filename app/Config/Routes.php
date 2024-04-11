@@ -12,13 +12,13 @@ $routes->group('api', function($routes)
     $routes->resource('utilisateur', ['controller' => 'UtilisateurJController']);
     $routes->resource('discipline', ['controller' => 'DisciplineJController']);
 
-    // Listes des équipes participant à un tournoi
+    // Routes à propos des équipes
     $routes->get('equipes/tournoi/(:num)', 'EquipeController::tournoi/$1');
     $routes->get('equipes/tournoi', 'EquipeController::tournoi');
 
-    // Match par discipline par tournoi
-    $routes->get('matchs/(:num)/(:num)', 'MatchController::list_match_by_discipline/$1/$2');
+    // Routes à propos des matchs
+    $routes->get('matchs/all/(:num)/(:num)', 'MatchController::list_match_by_discipline/$1/$2');
+    $routes->get('matchs/(:num)/start', 'MatchController::start_match/$1');
+    $routes->get('matchs/(:num)/end', 'MatchController::end_match/$1');
 
 });
-
-// $routes->get('api/utilisateur', 'UtilisateurJController::index');
