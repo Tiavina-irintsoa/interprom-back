@@ -19,6 +19,7 @@ class MatchController extends ResourceController{
         $model->insert($data);
         return $this->respondCreated($data);
     }
+
     public function update($id = null)
     {
         $model = new MatchModel();
@@ -26,6 +27,12 @@ class MatchController extends ResourceController{
         $model->update($id, $data);
         return $this->respond($data);
     }
+
+    public function show($id = null)
+    {
+       
+    }
+
     // Match par discipline par tournoi selon ordered by prevision date
     public function list_match_by_discipline($id_discipline, $id_tournoi)
     {
