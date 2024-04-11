@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PouleModel extends Model
+class PouleJModel extends Model
 {
     protected $table = 'poule';
     protected $primaryKey = 'id_poule';

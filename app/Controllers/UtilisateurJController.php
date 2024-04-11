@@ -33,17 +33,17 @@ class UtilisateurJController extends ResourceController
         }
     }
 
-    // public function show($id): ResponseInterface
-    // {
-    //     $model = new UtilisateurJModel();
-    //     $utilisateur = $model->find($id);
+    public function show($id = null): ResponseInterface
+    {
+        $model = new UtilisateurJModel();
+        $utilisateur = $model->find($id);
 
-    //     if ($utilisateur) {
-    //         return $this->respond($utilisateur);
-    //     } else {
-    //         return $this->failNotFound('Utilisateur non trouvé');
-    //     }
-    // }
+        if ($utilisateur) {
+            return $this->respond($utilisateur);
+        } else {
+            return $this->failNotFound('Utilisateur non trouvé');
+        }
+    }
 
     public function update($id = null): ResponseInterface
     {

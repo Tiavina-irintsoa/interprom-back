@@ -4,15 +4,15 @@ namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
-use App\Models\PouleModel;
+use App\Models\PouleJModel;
 
-class PouleController extends ResourceController
+class PouleJController extends ResourceController
 {
     use ResponseTrait;
 
     public function index()
     {
-        $model = new PouleModel();
+        $model = new PouleJModel();
         $poules = $model->findAll();
 
         return $this->respond($poules);
@@ -20,7 +20,7 @@ class PouleController extends ResourceController
 
     public function create()
     {
-        $model = new PouleModel();
+        $model = new PouleJModel();
         $data = $this->request->getJSON();
 
         if ($model->insert($data)) {
@@ -32,7 +32,7 @@ class PouleController extends ResourceController
 
     public function show($id = null)
     {
-        $model = new PouleModel();
+        $model = new PouleJModel();
         $poule = $model->find($id);
 
         if ($poule) {
@@ -44,7 +44,7 @@ class PouleController extends ResourceController
 
     public function update($id = null)
     {
-        $model = new PouleModel();
+        $model = new PouleJModel();
         $data = $this->request->getJSON();
 
         if ($model->update($id, $data)) {
@@ -56,7 +56,7 @@ class PouleController extends ResourceController
 
     public function delete($id = null)
     {
-        $model = new PouleModel();
+        $model = new PouleJModel();
         $deleted = $model->delete($id);
 
         if ($deleted) {

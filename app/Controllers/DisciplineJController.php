@@ -3,70 +3,72 @@
 namespace App\Controllers;
 
 use App\Models\DisciplineJModel;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+use CodeIgniter\API\ResponseTrait;
+use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\RESTful\ResourceController;
 
-class DisciplineJController
+class DisciplineJController extends ResourceController
 {
-    public function index(Request $request, Response $response, $args)
-    {
-        $disciplines = DisciplineJModel::all();
+    use ResponseTrait;
 
-        return $response->withJson($disciplines);
+    protected $modelName = 'App\Models\DisciplineJModel';
+    protected $format = 'json';
+
+    // -X GET
+    public function index(): ResponseInterface
+    {
+        $model = new DisciplineJModel();
+        $disciplines = $model->findAll();
+
+        return $this->respond($disciplines);
     }
 
-    public function show(Request $request, Response $response, $args)
+    // -X POST
+    public function create(): ResponseInterface
     {
-        $id = $args['id'];
-        $discipline = DisciplineJModel::find($id);
+        $model = new DisciplineJModel();
+        $data = $this->request->getJSON();
 
-        if (!$discipline) {
-            return $response->withStatus(404)->withJson(['message' => 'Discipline not found']);
+        if ($model->insert($data)) {
+            return $this->respondCreated(['message' => 'Discipline créé avec succès']);
+        } else {
+            return $this->failServerError('Erreur lors de la création de l\'utilisateur');
         }
-
-        return $response->withJson($discipline);
     }
 
-    public function store(Request $request, Response $response, $args)
+    public function show($id = null): ResponseInterface
     {
-        $data = $request->getParsedBody();
+        $model = new DisciplineJModel();
+        $utilisateur = $model->find($id);
 
-        $discipline = new DisciplineJModel();
-        $discipline->nom = $data['nom'];
-        $discipline->save();
-
-        return $response->withJson($discipline);
-    }
-
-    public function update(Request $request, Response $response, $args)
-    {
-        $id = $args['id'];
-        $data = $request->getParsedBody();
-
-        $discipline = DisciplineJModel::find($id);
-
-        if (!$discipline) {
-            return $response->withStatus(404)->withJson(['message' => 'Discipline not found']);
+        if ($utilisateur) {
+            return $this->respond($utilisateur);
+        } else {
+            return $this->failNotFound('Discipline non trouvé');
         }
-
-        $discipline->nom = $data['nom'];
-        $discipline->save();
-
-        return $response->withJson($discipline);
     }
 
-    public function delete(Request $request, Response $response, $args)
+    public function update($id = null): ResponseInterface
     {
-        $id = $args['id'];
+        $model = new DisciplineJModel();
+        $data = $this->request->getJSON();
 
-        $discipline = DisciplineJModel::find($id);
-
-        if (!$discipline) {
-            return $response->withStatus(404)->withJson(['message' => 'Discipline not found']);
+        if ($model->update($id, $data)) {
+            return $this->respond(['message' => 'Discipline mis à jour avec succès']);
+        } else {
+            return $this->failServerError('Erreur lors de la mise à jour de la discipline');
         }
+    }
 
-        $discipline->delete();
+    // -X DELETE
+    public function delete($id = null): ResponseInterface
+    {
+        $model = new DisciplineJModel();
 
-        return $response->withJson(['message' => 'Discipline deleted']);
+        if ($model->delete($id)) {
+            return $this->respondDeleted(['message' => 'Discipline supprimé avec succès']);
+        } else {
+            return $this->failServerError('Erreur lors de la suppression de la discipline');
+        }
     }
 }
