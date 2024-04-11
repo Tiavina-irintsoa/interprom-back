@@ -4,8 +4,8 @@ curl -X DELETE \
 
 curl -X POST \
   -H "Content-Type: application/json" \
-  -d '{"id":1,"nom":"johan","mdp":"johan"}' \
-  http://localhost:8080/api/utilisateur
+  -d '{"nom":"Basket"}' \
+  http://localhost:8080/api/discipline
 
 curl -X PUT \
   -H "Content-Type: application/json" \
