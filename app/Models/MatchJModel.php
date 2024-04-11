@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use CodeIgniter\Model;
 
 class MatchJModel extends Model
 {
@@ -23,6 +23,8 @@ class MatchJModel extends Model
         'score_equipe_2',
         'id_type',
     ];
+
+    protected $allowedFields = ['debut_reel', 'fin_reel'];
 
     public function equipeTournoi1()
     {
