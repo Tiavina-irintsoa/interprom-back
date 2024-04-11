@@ -30,4 +30,33 @@ FROM
     JOIN poule p ON et.id_poule = p.id_poule;
     
 SELECT * FROM v_equipe_tournoi_lib;
+
+-- View affichant les matchs par discipline par tournoi ordonnée par date et heure prevision debut
+CREATE VIEW v_match_lib_orderd_by_date AS
+SELECT
+    m.id_match, 
+    et1.id_tournoi,
+    e1.nom_equipe as nom_equipe_1,
+    e2.nom_equipe as nom_equipe_2,
+    date_,
+    debut_prevision,
+    debut_reel,
+    fin_prevision,
+    fin_reel,
+    d.nom as nom_discipline,
+    score_equipe_1,
+    score_equipe_2,
+    tm.nom as nom_type_match
+FROM
+    match m
+    JOIN equipe_tournoi et1 ON m.id_equipe_tournoi_1 = et1.id_equipe_tournoi
+    JOIN equipe e1 ON et1.id_equipe = e1.id_equipe
+    JOIN equipe_tournoi et2 ON m.id_equipe_tournoi_2 = et2.id_equipe_tournoi
+    JOIN equipe e2 ON et2.id_equipe = e2.id_equipe
+    JOIN discipline d ON m.id_discipline = d.id_discipline
+    JOIN type_match tm ON m.id_type = tm.id_type_match
+ORDER BY 
+    m.date_, m.debut_prevision;
+   
+SELECT * FROM v_match_lib_orderd_by_date;
    

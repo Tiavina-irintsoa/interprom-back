@@ -17,6 +17,9 @@ $routes->group('api', function($routes)
     $routes->get('equipes/tournoi', 'EquipeController::tournoi');
 
     $routes->resource('poule', ['controller' => 'PouleJController']);
+    // Match par discipline par tournoi
+    $routes->get('matchs/(:num)/(:num)', 'MatchController::list_match_by_discipline/$1/$2');
+
 });
 
 // $routes->get('api/utilisateur', 'UtilisateurJController::index');
