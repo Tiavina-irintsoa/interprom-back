@@ -1,3 +1,10 @@
+CREATE DATABASE madaebvx_itusport;
+\c madaebvx_itusport;
+
+CREATE ROLE madaebvx_ituser WITH LOGIN PASSWORD '{wlks7jdg^Pr';
+GRANT ALL PRIVILEGES ON DATABASE madaebvx_itusport TO madaebvx_ituser;
+
+
 CREATE  TABLE "public".discipline ( 
 	id_discipline        serial  NOT NULL  ,
 	nom                  varchar  NOT NULL  ,
