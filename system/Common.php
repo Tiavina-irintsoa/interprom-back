@@ -91,12 +91,17 @@ if (! function_exists('clean_path')) {
      */
     function clean_path(string $path): string
     {
-        // Resolve relative paths
+        // // Resolve relative paths
         try {
             $path = realpath($path) ?: $path;
         } catch (ErrorException|ValueError) {
             $path = 'error file path: ' . urlencode($path);
         }
+        // try {
+        //     $path = realpath($path) ?: $path;
+        // } catch (ErrorException | ValueError $exception) {
+        //     $path = 'error file path: ' . urlencode($path);
+        // }
 
         return match (true) {
             str_starts_with($path, APPPATH)                             => 'APPPATH' . DIRECTORY_SEPARATOR . substr($path, strlen(APPPATH)),
