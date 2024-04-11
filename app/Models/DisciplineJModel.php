@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use CodeIgniter\Model;
 
 class DisciplineJModel extends Model
 {
