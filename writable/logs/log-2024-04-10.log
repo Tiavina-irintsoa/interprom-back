@@ -1,0 +1,307 @@
+ERROR - 2024-04-10 11:35:24 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(12): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+CRITICAL - 2024-04-10 11:35:24 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [Postgre]: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot;
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 456.
+ 1 SYSTEMPATH\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH\Controllers\TestDatabase.php(12): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Visual Studio Code\\InterPromApp\\interprom-back\\public\\index.php')
+ERROR - 2024-04-10 11:35:26 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(12): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+CRITICAL - 2024-04-10 11:35:26 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [Postgre]: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot;
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 456.
+ 1 SYSTEMPATH\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH\Controllers\TestDatabase.php(12): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Visual Studio Code\\InterPromApp\\interprom-back\\public\\index.php')
+ERROR - 2024-04-10 11:36:01 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(12): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+CRITICAL - 2024-04-10 11:36:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [Postgre]: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot;
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 456.
+ 1 SYSTEMPATH\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH\Controllers\TestDatabase.php(12): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Visual Studio Code\\InterPromApp\\interprom-back\\public\\index.php')
+ERROR - 2024-04-10 11:36:04 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(12): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+CRITICAL - 2024-04-10 11:36:04 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [Postgre]: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot;
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 456.
+ 1 SYSTEMPATH\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH\Controllers\TestDatabase.php(12): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Visual Studio Code\\InterPromApp\\interprom-back\\public\\index.php')
+ERROR - 2024-04-10 11:47:07 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(15): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+ERROR - 2024-04-10 11:47:10 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(15): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+ERROR - 2024-04-10 12:06:27 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(15): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+ERROR - 2024-04-10 12:06:28 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(15): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+ERROR - 2024-04-10 12:14:11 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(15): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+ERROR - 2024-04-10 12:21:44 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(15): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+ERROR - 2024-04-10 12:21:45 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(15): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+ERROR - 2024-04-10 12:21:59 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(15): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+ERROR - 2024-04-10 12:22:12 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(15): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+ERROR - 2024-04-10 12:53:20 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(15): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+ERROR - 2024-04-10 12:53:22 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(15): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+ERROR - 2024-04-10 12:54:03 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(15): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
+ERROR - 2024-04-10 14:44:15 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;madaebvx_ituser&quot; in D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'D:\\Projects\\Vis...', 77)
+#1 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=localhost ...')
+#2 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\app\Controllers\TestDatabase.php(15): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#5 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+#6 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestDatabase))
+#7 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\Projects\Visual Studio Code\InterPromApp\interprom-back\system\Commands\Server\rewrite.php(49): require_once('D:\\Projects\\Vis...')
+#12 {main}
