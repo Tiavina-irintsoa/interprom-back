@@ -17,10 +17,14 @@ class DisciplineJController extends ResourceController
     // -X GET
     public function index(): ResponseInterface
     {
-        $model = new DisciplineJModel();
-        $disciplines = $model->findAll();
-
-        return $this->respond($disciplines);
+        try{
+            $model = new DisciplineJModel();
+            $disciplines = $model->findAll();
+            $result = $this->respond($disciplines);
+            return $this->respond(['error' => null, 'status' => 1, 'data' => $result]);
+        }catch(Exception $ex) {
+            return $this->respond(['error' => $ex, 'status' => 0, 'data' => null]);
+        }
     }
 
     // -X POST
