@@ -13,4 +13,6 @@ $routes->group('api', function($routes)
     $routes->resource('discipline', ['controller' => 'DisciplineJController']);
     $routes->resource('matchs', ['controller' => 'MatchController']);
 });
+$routes->post('/api/matchs/update_score', 'MatchController::update_score');
+
 // $routes->get('api/utilisateur', 'UtilisateurJController::index');
