@@ -20,9 +20,10 @@ class MatchJController extends ResourceController
         $builder->where('id_discipline', $id_discipline);
         $builder->where('debut_reel IS NOT NULL', null, false);
         $builder->where('fin_reel IS NULL', null, false);
-
+        // Afficher la requête SQL générée
+        // $sql = $builder->getCompiledSelect();
+        // echo $sql;
         $query = $builder->get();
-
         if ($query) {
             $result = $query->getResult();
             return $this->respond(['error' => null, 'status' => 1, 'data' => $result]);
