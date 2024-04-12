@@ -1,0 +1,315 @@
+CRITICAL - 2024-04-12 01:44:55 --> Error: Class "App\Models\EquipeTournoiJModel" not found
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 18.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:50:41 --> Error: Class "App\Models\EquipeTournoiJModel" not found
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 18.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:51:39 --> Error: Class "Codeigniter\Model" not found
+[Method: POST, Route: api/matchs]
+in APPPATH/Models/EquipeTournoiJModel.php on line 7.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(317): include_once()
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 3 SYSTEMPATH/Autoloader/Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 4 APPPATH/Controllers/MatchController.php(18): CodeIgniter\Autoloader\Autoloader->loadClass()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:51:58 --> Error: Class "App\Models\EquipeTournoiJModel" not found
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 18.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:54:29 --> ErrorException: Undefined variable $data
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 19.
+ 1 APPPATH/Controllers/MatchController.php(19): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:56:41 --> ErrorException: Undefined property: stdClass::$id_equipe_tournoi2
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 24.
+ 1 APPPATH/Controllers/MatchController.php(24): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:57:06 --> Error: Call to undefined function App\Controllers\is_valid_date()
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 28.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:59:04 --> Error: Cannot call constructor
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 16.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\MatchController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:59:50 --> Error: Cannot call constructor
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 16.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\MatchController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 02:00:03 --> ErrorException: Undefined property: stdClass::$date
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 30.
+ 1 APPPATH/Controllers/MatchController.php(30): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 02:01:49 --> ArgumentCountError: Too few arguments to function date_not_in_future(), 1 passed in /var/www/html/interprom-back/app/Controllers/MatchController.php on line 30 and exactly 2 expected
+[Method: POST, Route: api/matchs]
+in APPPATH/Helpers/my_date_helper.php on line 16.
+ 1 APPPATH/Controllers/MatchController.php(30): date_not_in_future()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 02:02:27 --> Error: Class "Time" not found
+[Method: POST, Route: api/matchs]
+in APPPATH/Helpers/my_date_helper.php on line 27.
+ 1 APPPATH/Controllers/MatchController.php(33): is_before()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+ERROR - 2024-04-12 02:08:29 --> ErrorException: pg_query(): Query failed: ERROR:  insert or update on table &quot;match&quot; violates foreign key constraint &quot;fk_match_discipline&quot;
+DETAIL:  Key (id_discipline)=(2) is not present in table &quot;discipline&quot;. in /var/www/html/interprom-back/system/Database/Postgre/Connection.php:192
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/interprom-back/system/Database/Postgre/Connection.php(192): pg_query()
+#2 /var/www/html/interprom-back/system/Database/BaseConnection.php(721): CodeIgniter\Database\Postgre\Connection->execute()
+#3 /var/www/html/interprom-back/system/Database/BaseConnection.php(635): CodeIgniter\Database\BaseConnection->simpleQuery()
+#4 /var/www/html/interprom-back/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+#5 /var/www/html/interprom-back/system/Model.php(382): CodeIgniter\Database\BaseBuilder->insert()
+#6 /var/www/html/interprom-back/system/BaseModel.php(840): CodeIgniter\Model->doInsert()
+#7 /var/www/html/interprom-back/system/Model.php(790): CodeIgniter\BaseModel->insert()
+#8 /var/www/html/interprom-back/app/Controllers/MatchController.php(39): CodeIgniter\Model->insert()
+#9 /var/www/html/interprom-back/system/CodeIgniter.php(933): App\Controllers\MatchController->create()
+#10 /var/www/html/interprom-back/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#11 /var/www/html/interprom-back/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#12 /var/www/html/interprom-back/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#13 /var/www/html/interprom-back/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#14 /var/www/html/interprom-back/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#15 /var/www/html/interprom-back/system/Commands/Server/rewrite.php(49): require_once('...')
+#16 {main}
+CRITICAL - 2024-04-12 02:08:29 --> CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  insert or update on table &quot;match&quot; violates foreign key constraint &quot;fk_match_discipline&quot;
+DETAIL:  Key (id_discipline)=(2) is not present in table &quot;discipline&quot;.
+[Method: POST, Route: api/matchs]
+in SYSTEMPATH/Database/BaseConnection.php on line 675.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(382): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert()
+ 4 SYSTEMPATH/Model.php(790): CodeIgniter\BaseModel->insert()
+ 5 APPPATH/Controllers/MatchController.php(39): CodeIgniter\Model->insert()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 02:08:29 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  insert or update on table &quot;match&quot; violates foreign key constraint &quot;fk_match_discipline&quot;
+DETAIL:  Key (id_discipline)=(2) is not present in table &quot;discipline&quot;.
+in SYSTEMPATH/Database/Postgre/Connection.php on line 197.
+ 1 SYSTEMPATH/Database/BaseConnection.php(721): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(635): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(382): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert()
+ 6 SYSTEMPATH/Model.php(790): CodeIgniter\BaseModel->insert()
+ 7 APPPATH/Controllers/MatchController.php(39): CodeIgniter\Model->insert()
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+14 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 02:08:29 --> [Caused by] ErrorException: pg_query(): Query failed: ERROR:  insert or update on table &quot;match&quot; violates foreign key constraint &quot;fk_match_discipline&quot;
+DETAIL:  Key (id_discipline)=(2) is not present in table &quot;discipline&quot;.
+in SYSTEMPATH/Database/Postgre/Connection.php on line 192.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(192): pg_query()
+ 3 SYSTEMPATH/Database/BaseConnection.php(721): CodeIgniter\Database\Postgre\Connection->execute()
+ 4 SYSTEMPATH/Database/BaseConnection.php(635): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query()
+ 6 SYSTEMPATH/Model.php(382): CodeIgniter\Database\BaseBuilder->insert()
+ 7 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert()
+ 8 SYSTEMPATH/Model.php(790): CodeIgniter\BaseModel->insert()
+ 9 APPPATH/Controllers/MatchController.php(39): CodeIgniter\Model->insert()
+10 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+11 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+16 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 02:13:29 --> Error: Class "App\Models\TypeMatchModel" not found
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 44.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 02:14:17 --> Error: Class "App\Models\TypeMatchJModel" not found
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 44.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+ERROR - 2024-04-12 02:33:29 --> ErrorException: pg_query(): Query failed: ERROR:  column v_match_lib_orderd_by_date.id does not exist
+LINE 3: WHERE &quot;v_match_lib_orderd_by_date&quot;.&quot;id&quot; = '1'
+              ^ in /var/www/html/interprom-back/system/Database/Postgre/Connection.php:192
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /var/www/html/interprom-back/system/Database/Postgre/Connection.php(192): pg_query()
+#2 /var/www/html/interprom-back/system/Database/BaseConnection.php(721): CodeIgniter\Database\Postgre\Connection->execute()
+#3 /var/www/html/interprom-back/system/Database/BaseConnection.php(635): CodeIgniter\Database\BaseConnection->simpleQuery()
+#4 /var/www/html/interprom-back/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+#5 /var/www/html/interprom-back/system/Model.php(206): CodeIgniter\Database\BaseBuilder->get()
+#6 /var/www/html/interprom-back/system/BaseModel.php(610): CodeIgniter\Model->doFind()
+#7 /var/www/html/interprom-back/app/Controllers/MatchController.php(65): CodeIgniter\BaseModel->find()
+#8 /var/www/html/interprom-back/system/CodeIgniter.php(933): App\Controllers\MatchController->show()
+#9 /var/www/html/interprom-back/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#10 /var/www/html/interprom-back/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#11 /var/www/html/interprom-back/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /var/www/html/interprom-back/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#13 /var/www/html/interprom-back/public/index.php(56): CodeIgniter\Boot::bootWeb()
+#14 /var/www/html/interprom-back/system/Commands/Server/rewrite.php(49): require_once('...')
+#15 {main}
+CRITICAL - 2024-04-12 02:33:29 --> CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  column v_match_lib_orderd_by_date.id does not exist
+LINE 3: WHERE &quot;v_match_lib_orderd_by_date&quot;.&quot;id&quot; = '1'
+              ^
+[Method: GET, Route: api/matchs/1]
+in SYSTEMPATH/Database/BaseConnection.php on line 675.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(206): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(610): CodeIgniter\Model->doFind()
+ 4 APPPATH/Controllers/MatchController.php(65): CodeIgniter\BaseModel->find()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->show()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 02:33:29 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: pg_query(): Query failed: ERROR:  column v_match_lib_orderd_by_date.id does not exist
+LINE 3: WHERE &quot;v_match_lib_orderd_by_date&quot;.&quot;id&quot; = '1'
+              ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 197.
+ 1 SYSTEMPATH/Database/BaseConnection.php(721): CodeIgniter\Database\Postgre\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(635): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(206): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(610): CodeIgniter\Model->doFind()
+ 6 APPPATH/Controllers/MatchController.php(65): CodeIgniter\BaseModel->find()
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->show()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 02:33:29 --> [Caused by] ErrorException: pg_query(): Query failed: ERROR:  column v_match_lib_orderd_by_date.id does not exist
+LINE 3: WHERE &quot;v_match_lib_orderd_by_date&quot;.&quot;id&quot; = '1'
+              ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 192.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(192): pg_query()
+ 3 SYSTEMPATH/Database/BaseConnection.php(721): CodeIgniter\Database\Postgre\Connection->execute()
+ 4 SYSTEMPATH/Database/BaseConnection.php(635): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query()
+ 6 SYSTEMPATH/Model.php(206): CodeIgniter\Database\BaseBuilder->get()
+ 7 SYSTEMPATH/BaseModel.php(610): CodeIgniter\Model->doFind()
+ 8 APPPATH/Controllers/MatchController.php(65): CodeIgniter\BaseModel->find()
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->show()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+15 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 02:46:39 --> Error: Undefined constant "App\Controllers\this"
+[Method: GET, Route: api/type-match]
+in APPPATH/Controllers/TypeMatchController.php on line 14.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TypeMatchController->index()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 03:01:40 --> ErrorException: Undefined variable $model
+[Method: GET, Route: api/tournoi-equipes]
+in APPPATH/Models/VEquipeTournoiTLib.php on line 13.
+ 1 APPPATH/Models/VEquipeTournoiTLib.php(13): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/TournoiEquipeController.php(15): App\Models\VEquipeTournoiTLib->get_teams_of_this_tournament()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TournoiEquipeController->index()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
