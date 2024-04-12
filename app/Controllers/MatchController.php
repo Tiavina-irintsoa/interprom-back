@@ -173,21 +173,26 @@ class MatchController extends ResourceController
 
     public function end_match($id_match)
     {
+        $this->db = \Config\Database::connect();
+        $this->db->transStart(); // Démarre la transaction
+
         $match_model = new MatchJModel();
 
         $match = $match_model->find($id_match);
         if (!isset($match)) {
+            $this->db->transRollback(); // Annule la transaction
             return $this->respond([
                 'status' => 0,
-                'error' => "Le match que vous voulez terminer n' éxiste même pas",
+                'error' => "Le match que vous voulez terminer n'existe même pas",
                 'data' => null
             ], 403);
         }
 
         if (isset($match['fin_reel'])) {
+            $this->db->transRollback(); // Annule la transaction
             return $this->respond([
                 'status' => 0,
-                'error' => "Le match que vous voulez spécifié est déja terminer !",
+                'error' => "Le match que vous voulez spécifier est déjà terminé !",
                 'data' => null
             ], 403);
         }
@@ -198,16 +203,38 @@ class MatchController extends ResourceController
             'fin_reel' => date('H:i:s')
         ];
 
-        $match_model->update($id_match, $update_data);
+        $update_success = $match_model->update($id_match, $update_data);
 
-        $this->insert_resultat($match);
+        if (!$update_success) {
+            $this->db->transRollback(); // Annule la transaction
+            return $this->respond([
+                'status' => 0,
+                'error' => "Échec de la mise à jour du match",
+                'data' => null
+            ], 500);
+        }
+
+        // Insérer le résultat seulement si la mise à jour du match réussit
+        $insert_resultat_success = $this->insert_resultat($match);
+
+        if (!$insert_resultat_success) {
+            $this->db->transRollback(); // Annule la transaction
+            return $this->respond([
+                'status' => 0,
+                'error' => "Échec de l'insertion des résultats",
+                'data' => null
+            ], 500);
+        }
+
+        $this->db->transCommit(); // Valide la transaction
 
         return $this->respond([
             'status' => 1,
-            'data' => 'Match terminé avec success !',
+            'data' => 'Match terminé avec succès !',
             'error' => null
         ]);
     }
+
 
     public function get_point($match, $equipe_1_or_2)
     {
