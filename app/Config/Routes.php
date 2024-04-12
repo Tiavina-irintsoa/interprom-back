@@ -45,3 +45,6 @@ $routes->get('matchs/(:num)/end', 'MatchController::end_match/$1');
 $routes->get('api/resultat-match/poule_(:num)', 'PouleJController::get_resultat_poule_choisie/$1');
 $routes->get('api/classement/poule_(:num)', 'PouleJController::get_classement_par_poule_choisi/$1');
 $routes->get('api/poule-discipline_(:num)', 'DisciplineJController::get_all_poule_by_discipline/$1');
+
+$routes->get('api/elimination-en-cours/discipline_(:num)', 'MatchJController::get_matche_en_cours_par_discipline/$1');
+$routes->get('api/elimination-a-suivre/discipline_(:num)', 'MatchJController::get_matche_a_suivre_par_discipline/$1');
