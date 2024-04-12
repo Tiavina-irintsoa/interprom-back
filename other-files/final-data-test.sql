@@ -102,6 +102,8 @@ INSERT INTO type_match VALUES
 (4, 'Demi-Finale', 4),
 (5, 'Finale', 5);
 
+ALTER SEQUENCE type_match_id_type_match_seq RESTART 6;
+
 -- Insertion des programmes de match
 INSERT INTO match
 (id_equipe_tournoi_1, id_equipe_tournoi_2, date_, debut_prevision, fin_prevision, id_discipline, score_equipe_1, score_equipe_2, id_type, terrain) 
