@@ -22,37 +22,37 @@ class MatchController extends ResourceController{
         $data=$this->request->getJSON();
         $equipe_tournoi_model = new EquipeTournoiJModel();
         if($data->id_equipe_tournoi_1 == $data->id_equipe_tournoi_2){
-            return $this->respond(array('error'=>'Les équipes doivent être différentes','data'=>null,'status'=>0));
+            return $this->respond(array('error'=>'Les équipes doivent être différentes','data'=>null,'status'=>0), 403);
         }
         $eq_t_1=$equipe_tournoi_model->find($data->id_equipe_tournoi_1);
         if(!$eq_t_1){
-            return $this->respond(array('error'=>'L\'équipe 1 choisie ne participe pas à ce tournoi','data'=>null,'status'=>0));
+            return $this->respond(array('error'=>'L\'équipe 1 choisie ne participe pas à ce tournoi','data'=>null,'status'=>0), 403);
         }
         $eq_t_2=$equipe_tournoi_model->find($data->id_equipe_tournoi_2);
         if(!$eq_t_2){
-            return $this->respond(array('error'=>'L\'équipe 2 choisie ne participe pas à ce tournoi','data'=>null,'status'=>0));
+            return $this->respond(array('error'=>'L\'équipe 2 choisie ne participe pas à ce tournoi','data'=>null,'status'=>0), 403);
         }
         
         if(is_valid_date($data->date_)==false){
-            return $this->respond(array('error'=>'Date invalide','data'=>null,'status'=>0));
+            return $this->respond(array('error'=>'Date invalide','data'=>null,'status'=>0), 403);
         }
 
         if(is_before($data->debut_prevision, $data->fin_prevision)==false){
-            return $this->respond(array('error'=>'L\'heure de début doit être antérieure à l\'heure de fin','data'=>null,'status'=>0));
+            return $this->respond(array('error'=>'L\'heure de début doit être antérieure à l\'heure de fin','data'=>null,'status'=>0), 403);
         }
         $discpline_model = new DisciplineJModel();
         $discipline=$discpline_model->find($data->id_discipline);
         if(!$discipline){
-            return $this->respond(array('error'=>'Discipline invalide','data'=>null,'status'=>0));
+            return $this->respond(array('error'=>'Discipline invalide','data'=>null,'status'=>0), 403);
         }
         $type_match_model = new TypeMatchJModel();
         $type_match=$type_match_model->find($data->id_type);
         if(!$type_match){
-            return $this->respond(array('error'=>'Type de match invalide','data'=>null,'status'=>0));
+            return $this->respond(array('error'=>'Type de match invalide','data'=>null,'status'=>0), 403);
         }
         $model = new MatchModel();
         $match=$model->insert($data);
-        return $this->respondCreated(array('error'=>null,'data'=>$match,'status'=>1));
+        return $this->respondCreated(array('error'=>null,'data'=>$match,'status'=>1), 403);
     }
 
     public function update($id = null)
@@ -68,7 +68,7 @@ class MatchController extends ResourceController{
         $model = new VMatchLibModel();
         $resp=$model->find($id);
         if(!$resp){
-            return $this->respond(array('error'=>'Ce match n\'existe pas','data'=>null,'status'=>0));
+            return $this->respond(array('error'=>'Ce match n\'existe pas','data'=>null,'status'=>0), 403);
         }
         return $this->respond(array('error'=>null,'data'=>$resp,'status'=>1));
     }
@@ -93,21 +93,21 @@ class MatchController extends ResourceController{
         $data=$this->request->getJSON();
         $match = $model->find($data->idmatch);
         if($data->points<0 || is_numeric($data->points)==false){
-            return $this->respond(array('error'=>'Points invalides','data'=>null,'status'=>0));
+            return $this->respond(array('error'=>'Points invalides','data'=>null,'status'=>0), 403);
         }
         if (!$match) {
-            return $this->respond(array('error'=>'Ce match n\'existe pas','data'=>null,'status'=>0));
+            return $this->respond(array('error'=>'Ce match n\'existe pas','data'=>null,'status'=>0), 403);
         }
         else{
             if($match['fin_reel']!=''){
-                return $this->respond(array('error'=>'Ce match est déjà terminé','data'=>null,'status'=>0));
+                return $this->respond(array('error'=>'Ce match est déjà terminé','data'=>null,'status'=>0), 403);
             }
             if($match['debut_reel']==''){
-                return $this->respond(array('error'=>'Ce match n\' a pas encore commencé','data'=>null,'status'=>0));
+                return $this->respond(array('error'=>'Ce match n\' a pas encore commencé','data'=>null,'status'=>0), 403);
             }
         }
         if($data->equipe!=1 && $data->equipe!=2){
-            return $this->respond(array('error'=>'L\'equipe doit être 1 ou 2','data'=>null,'status'=>0));
+            return $this->respond(array('error'=>'L\'equipe doit être 1 ou 2','data'=>null,'status'=>0), 403);
         }
         $match=$model->updateScore($data,$match);
         return $this->respond(array('error'=>null,'data'=>$match,'status'=>1));
@@ -124,7 +124,7 @@ class MatchController extends ResourceController{
                 'status' => 0,
                 'error' => "Le match que vous voulez commencer n' éxiste pas",
                 'data' => null
-            ]);
+            ], 403);
         }
 
         if (isset($match['debut_reel'])) {
@@ -132,7 +132,7 @@ class MatchController extends ResourceController{
                 'status' => 0,
                 'error' => "Le match que vous voulez spécifier a déja commencé !",
                 'data' => null
-            ]);
+            ], 403);
         }
 
         date_default_timezone_set('Indian/Antananarivo');
@@ -160,7 +160,7 @@ class MatchController extends ResourceController{
                 'status' => 0,
                 'error' => "Le match que vous voulez terminer n' éxiste même pas",
                 'data' => null
-            ]);
+            ], 403);
         }
 
         if (isset($match['fin_reel'])) {
@@ -168,7 +168,7 @@ class MatchController extends ResourceController{
                 'status' => 0,
                 'error' => "Le match que vous voulez spécifié est déja terminer !",
                 'data' => null
-            ]);
+            ], 403);
         }
 
         date_default_timezone_set('Indian/Antananarivo');

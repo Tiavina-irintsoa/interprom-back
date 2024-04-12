@@ -16,7 +16,7 @@ FROM
     JOIN tournoi t ON et.id_tournoi = t.id_tournoi
     JOIN poule p ON et.id_poule = p.id_poule
     JOIN discipline d ON p.id_discipline = d.id_discipline;
-   
+
 SELECT * FROM v_equipe_tournoi_lib_comp;
     
 -- View de l'équipe dans chaque tournoi avec leur libéllé
@@ -33,7 +33,7 @@ FROM
     JOIN tournoi t ON et.id_tournoi = t.id_tournoi
     JOIN poule p ON et.id_poule = p.id_poule
     JOIN discipline d ON p.id_discipline = d.id_discipline;
-    
+
 SELECT * FROM v_equipe_tournoi_lib;
 
 -- View affichant les matchs par discipline par tournoi ordonnée par date et heure prevision debut
@@ -72,3 +72,24 @@ create view v_equipe_tournoi_t_lib as (
     join equipe
         on equipe.id_equipe = equipe_tournoi.id_equipe
 );
+
+-- W N L equipe par match
+CREATE VIEW "public".v_resultat_par_equipe_tournoi AS  SELECT r.id_equipe_tournoi,
+    sum(r.point) AS points,
+    sum(
+        CASE
+            WHEN (r.score_marque > r.score_encaisse) THEN 1
+            ELSE 0
+        END) AS w,
+    sum(
+        CASE
+            WHEN (r.score_marque = r.score_encaisse) THEN 1
+            ELSE 0
+        END) AS n,
+    sum(
+        CASE
+            WHEN (r.score_marque < r.score_encaisse) THEN 1
+            ELSE 0
+        END) AS l
+   FROM resultat r
+  GROUP BY r.id_equipe_tournoi;

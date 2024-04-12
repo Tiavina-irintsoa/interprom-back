@@ -37,5 +37,5 @@ $routes->get('matchs/all/(:num)/(:num)', 'MatchController::list_match_by_discipl
 $routes->get('matchs/(:num)/start', 'MatchController::start_match/$1');
 $routes->get('matchs/(:num)/end', 'MatchController::end_match/$1');
 
-$routes->get('api/statistique-par-poule/(:num)', 'PouleJController::get_resultat_poule_choisie/$1');
-$routes->get('api/classement-par-poule/(:num)', 'PouleJController::get_classement_par_poule_choisi/$1');
+$routes->get('api/statistique-par-poule/(:num)/(:num)', 'PouleJController::get_resultat_poule_choisie/$1/$2');
+$routes->get('api/classement-par-poule/(:num)/(:num)', 'PouleJController::get_classement_par_poule_choisi/$1/$2');
