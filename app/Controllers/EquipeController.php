@@ -62,8 +62,7 @@ class EquipeController extends ResourceController
                     } else {
                         $notInsertedIndices[] = $index + 1;
                     }
-                }
-                else{
+                } else {
                     $notInsertedIndices[] = $index + 1;
                 }
             }
@@ -77,5 +76,20 @@ class EquipeController extends ResourceController
         } catch (\Exception $e) {
             return $this->respond(['message' => 'An error occurred during the import process'], 500);
         }
+    }
+    
+    public function get_equipes_by_tournoi_discipline($id_discipline, $id_tournoi)
+    {
+        $equipe_tournoi = new VEquipeTournoiLibCompModel();
+        $equipe_tournoi->select('id_equipe_tournoi, nom_equipe, nom_poule, nom_discipline, nom_tournoi');
+        $equipes = $equipe_tournoi->where('id_tournoi', $id_tournoi)->where('id_discipline', $id_discipline)->findAll();
+
+        $data = [
+            'status' => 1,
+            'data' => $equipes,
+            'error' => null
+        ];
+
+        return $this->respond($data);
     }
 }

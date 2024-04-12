@@ -35,10 +35,13 @@ $routes->post('/api/matchs/update_score', 'MatchController::update_score');
 
 // Routes à propos des équipes
 $routes->get('api/equipes/tournoi/(:num)', 'EquipeController::tournoi/$1');
-// $routes->get('api/equipes/tournoi', 'EquipeController::tournoi');
+$routes->get('api/equipes/tournoi', 'EquipeController::tournoi');
+$routes->get('api/equipes-discipline-tournoi/(:num)/(:num)', 'EquipeController::get_equipes_by_tournoi_discipline/$1/$2');
 
 // A propos des matchs
 $routes->get('api/matchs-discipline-tournoi/(:num)/(:num)', 'MatchController::list_match_by_discipline/$1/$2');
+$routes->get('api/matchs-tournoi/(:num)', 'MatchController::list_match_ordered/$1');
+$routes->get('api/matchs-tournoi', 'MatchController::list_match_ordered');
 $routes->get('api/start-match/(:num)', 'MatchController::start_match/$1');
 $routes->get('api/end-match/(:num)', 'MatchController::end_match/$1');
 
@@ -51,5 +54,5 @@ $routes->get('matchs/all/(:num)/(:num)', 'MatchController::list_match_by_discipl
 $routes->get('matchs/(:num)/start', 'MatchController::start_match/$1');
 $routes->get('matchs/(:num)/end', 'MatchController::end_match/$1');
 
-$routes->get('api/statistique-par-poule/(:num)', 'PouleJController::get_resultat_poule_choisie/$1');
-$routes->get('api/classement-par-poule/(:num)', 'PouleJController::get_classement_par_poule_choisi/$1');
+$routes->get('api/statistique-par-poule/(:num)/(:num)', 'PouleJController::get_resultat_poule_choisie/$1/$2');
+$routes->get('api/classement-par-poule/(:num)/(:num)', 'PouleJController::get_classement_par_poule_choisi/$1/$2');
