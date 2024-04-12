@@ -2,14 +2,13 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
-use CodeIgniter\API\ResponseTrait;
+
 use App\Models\PouleJModel;
 
 class PouleJController extends ResourceController
 {
-    use ResponseTrait;
-
     public function index()
     {
         try{
@@ -70,22 +69,43 @@ class PouleJController extends ResourceController
         }
     }
 
-    public function get_resultat_poule_choisie($id_poule = null)
+    public function get_resultat_poule_choisie($id_poule = null): ResponseInterface
     {
         try{
-            $result = $this->db->table('match m')
-                ->select('*')
-                ->join('equipe_tournoi et1', 'et1.id_equipe_tournoi = m.id_equipe_tournoi_1', 'left')
-                ->join('equipe_tournoi et2', 'et2.id_equipe_tournoi = m.id_equipe_tournoi_2', 'left')
-                ->join('poule p1', 'p1.id_poule = et1.id_poule', 'left')
-                ->join('poule p2', 'p2.id_poule = et2.id_poule', 'left')
-                ->where('p1.id_poule', $id_poule)
-                ->where('p2.id_poule', $id_poule)
-                ->get()
-                ->getResult();
+            $db = \Config\Database::connect();
+            $builder = $db->table('match m');
+            $builder->select('*');
+            $builder->join('equipe_tournoi et1', 'et1.id_equipe_tournoi = m.id_equipe_tournoi_1', 'left');
+            $builder->join('equipe_tournoi et2', 'et2.id_equipe_tournoi = m.id_equipe_tournoi_2', 'left');
+            $builder->join('poule p1', 'p1.id_poule = et1.id_poule', 'left');
+            $builder->join('poule p2', 'p2.id_poule = et2.id_poule', 'left');
+            $builder->where('p1.id_poule', $id_poule);
+            $builder->where('p2.id_poule', $id_poule);
+            $query = $builder->get();
+            $result = $query->getResult();
             return $this->respond(['error' => null, 'status' => 1, 'data' => $result]);
         }catch(Exception $ex) {
             return $this->respond(['error' => $ex, 'status' => 0, 'data' => null]);
         }
     }
+
+    public function get_classement_par_poule_choisi($id_poule = 1): ResponseInterface
+    {
+        try {
+            $db = \Config\Database::connect();
+            $builder = $db->table('v_resultat_par_equipe_tournoi vr');
+            $builder->select('vr.*, e.*');
+            $builder->join('equipe_tournoi et', 'et.id_equipe_tournoi = vr.id_equipe_tournoi');
+            $builder->join('equipe e', 'e.id_equipe = et.id_equipe');
+            $builder->where('et.id_poule', $id_poule);
+            $builder->orderBy('vr.points', 'DESC');
+            $query = $builder->get();
+            $result = $query->getResult();
+            return $this->respond(['error' => null, 'status' => 1, 'data' => $result]);
+        } catch (Exception $ex) {
+            return $this->respond(['error' => $ex, 'status' => 0, 'data' => null]);
+        }
+    }    
 }
+
+

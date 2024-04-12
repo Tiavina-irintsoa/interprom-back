@@ -177,3 +177,112 @@ in APPPATH/Controllers/PouleJController.php on line 76.
  6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
  7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
  8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')
+CRITICAL - 2024-04-11 17:06:04 --> ErrorException: Undefined property: App\Controllers\PouleJController::$db
+[Method: GET, Route: api/statistique-par-poule/1]
+in APPPATH/Controllers/PouleJController.php on line 76.
+ 1 APPPATH/Controllers/PouleJController.php(76): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PouleJController->get_resultat_poule_choisie()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')
+CRITICAL - 2024-04-11 17:06:50 --> ErrorException: Undefined property: App\Controllers\PouleJController::$db
+[Method: GET, Route: api/statistique-par-poule/1]
+in APPPATH/Controllers/PouleJController.php on line 76.
+ 1 APPPATH/Controllers/PouleJController.php(76): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PouleJController->get_resultat_poule_choisie()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')
+CRITICAL - 2024-04-11 17:07:14 --> ErrorException: Undefined property: App\Controllers\PouleJController::$db
+[Method: GET, Route: api/statistique-par-poule/1]
+in APPPATH/Controllers/PouleJController.php on line 76.
+ 1 APPPATH/Controllers/PouleJController.php(76): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PouleJController->get_resultat_poule_choisie()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')
+CRITICAL - 2024-04-11 17:07:16 --> ErrorException: Undefined property: App\Controllers\PouleJController::$db
+[Method: GET, Route: api/statistique-par-poule/1]
+in APPPATH/Controllers/PouleJController.php on line 76.
+ 1 APPPATH/Controllers/PouleJController.php(76): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PouleJController->get_resultat_poule_choisie()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')
+CRITICAL - 2024-04-11 17:09:05 --> ErrorException: Undefined property: App\Controllers\PouleJController::$db
+[Method: GET, Route: api/statistique-par-poule/1]
+in APPPATH/Controllers/PouleJController.php on line 76.
+ 1 APPPATH/Controllers/PouleJController.php(76): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PouleJController->get_resultat_poule_choisie()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')
+CRITICAL - 2024-04-11 17:15:44 --> ErrorException: Undefined property: App\Controllers\PouleJController::$db
+[Method: GET, Route: api/statistique-par-poule/1]
+in APPPATH/Controllers/PouleJController.php on line 78.
+ 1 APPPATH/Controllers/PouleJController.php(78): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PouleJController->get_resultat_poule_choisie()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')
+CRITICAL - 2024-04-11 17:17:02 --> ErrorException: Undefined property: App\Controllers\PouleJController::$db
+[Method: GET, Route: api/statistique-par-poule/1]
+in APPPATH/Controllers/PouleJController.php on line 78.
+ 1 APPPATH/Controllers/PouleJController.php(78): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PouleJController->get_resultat_poule_choisie()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')
+CRITICAL - 2024-04-11 17:17:08 --> ErrorException: Undefined property: App\Controllers\PouleJController::$db
+[Method: GET, Route: api/statistique-par-poule/1]
+in APPPATH/Controllers/PouleJController.php on line 78.
+ 1 APPPATH/Controllers/PouleJController.php(78): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PouleJController->get_resultat_poule_choisie()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')
+CRITICAL - 2024-04-11 17:18:06 --> Error: Call to undefined method CodeIgniter\Database\Postgre\Result::row()
+[Method: GET, Route: /]
+in APPPATH/Controllers/TestDatabase.php on line 17.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TestDatabase->index()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')
+CRITICAL - 2024-04-11 17:18:22 --> ErrorException: Undefined property: App\Controllers\PouleJController::$db
+[Method: GET, Route: api/statistique-par-poule/1]
+in APPPATH/Controllers/PouleJController.php on line 78.
+ 1 APPPATH/Controllers/PouleJController.php(78): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PouleJController->get_resultat_poule_choisie()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')
