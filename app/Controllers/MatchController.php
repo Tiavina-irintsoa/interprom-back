@@ -7,6 +7,7 @@ helper('date_helper');
 use App\Controllers\BaseController;
 use App\Models\MatchJModel;
 use App\Models\MatchModel;
+use App\Models\ResultatJModel;
 use App\Models\VMatchLibModel;
 use App\Models\EquipeTournoiJModel;
 use App\Models\DisciplineJModel;
@@ -199,7 +200,7 @@ class MatchController extends ResourceController
 
         $match_model->update($id_match, $update_data);
 
-        insert_resultat($match);
+        $this->insert_resultat($match);
 
         return $this->respond([
             'status' => 1,
@@ -210,12 +211,12 @@ class MatchController extends ResourceController
 
     public function get_point($match, $equipe_1_or_2)
     {
-        if($match->score_equipe_1 > $match->score_equipe_2)
+        if($match['score_equipe_1'] > $match['score_equipe_2'])
         {
             if($equipe_1_or_2 == 1)return 3;
             else return 0;
         }
-        else if($match->score_equipe_1 < $match->score_equipe_2)
+        else if($match['score_equipe_1'] < $match['score_equipe_2'])
         {
             if($equipe_1_or_2 == 1)return 0;
             else return 3;
@@ -232,21 +233,21 @@ class MatchController extends ResourceController
         // Récupération des points et des données de résultat pour la première équipe
         $point_1 = $this->get_point($match, 1);
         $first_resultat = [
-            'id_equipe_tournoi' => $match->id_equipe_tournoi_1,
-            'id_match' => $match->id_match,
+            'id_equipe_tournoi' => $match['id_equipe_tournoi_1'],
+            'id_match' => $match['id_match'],
             'point' => $point_1,
-            'score_marque' => $match->score_equipe_1,
-            'score_encaisse' => $match->score_equipe_2
+            'score_marque' => $match['score_equipe_1'],
+            'score_encaisse' => $match['score_equipe_2']
         ];
 
         // Récupération des points et des données de résultat pour la deuxième équipe
         $point_2 = $this->get_point($match, 2);
         $second_resultat = [
-            'id_equipe_tournoi' => $match->id_equipe_tournoi_2,
-            'id_match' => $match->id_match,
+            'id_equipe_tournoi' => $match['id_equipe_tournoi_2'],
+            'id_match' => $match['id_match'],
             'point' => $point_2,
-            'score_marque' => $match->score_equipe_2,
-            'score_encaisse' => $match->score_equipe_1
+            'score_marque' => $match['score_equipe_2'],
+            'score_encaisse' => $match['score_equipe_1']
         ];
 
         // Insertion des résultats dans la base de données
