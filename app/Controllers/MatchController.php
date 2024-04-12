@@ -21,6 +21,9 @@ class MatchController extends ResourceController{
         helper('my_date_helper');
         $data=$this->request->getJSON();
         $equipe_tournoi_model = new EquipeTournoiJModel();
+        if($data->id_equipe_tournoi_1 == $data->id_equipe_tournoi_2){
+            return $this->respond(array('error'=>'Les équipes doivent être différentes','data'=>null,'status'=>0));
+        }
         $eq_t_1=$equipe_tournoi_model->find($data->id_equipe_tournoi_1);
         if(!$eq_t_1){
             return $this->respond(array('error'=>'L\'équipe 1 choisie ne participe pas à ce tournoi','data'=>null,'status'=>0));
@@ -29,6 +32,7 @@ class MatchController extends ResourceController{
         if(!$eq_t_2){
             return $this->respond(array('error'=>'L\'équipe 2 choisie ne participe pas à ce tournoi','data'=>null,'status'=>0));
         }
+        
         if(is_valid_date($data->date_)==false){
             return $this->respond(array('error'=>'Date invalide','data'=>null,'status'=>0));
         }
