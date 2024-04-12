@@ -6,5 +6,8 @@ use CodeIgniter\Model;
 
 class VMatchLibModel extends Model
 {
+
     protected $table = 'v_match_lib_orderd_by_date';
+    protected $primaryKey = 'id_match';
+
 }

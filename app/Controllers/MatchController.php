@@ -61,7 +61,12 @@ class MatchController extends ResourceController{
 
     public function show($id = null)
     {
-       
+        $model = new VMatchLibModel();
+        $resp=$model->find($id);
+        if(!$resp){
+            return $this->respond(array('error'=>'Ce match n\'existe pas','data'=>null,'status'=>0));
+        }
+        return $this->respond(array('error'=>null,'data'=>$resp,'status'=>1));
     }
 
     // Match par discipline par tournoi selon ordered by prevision date
