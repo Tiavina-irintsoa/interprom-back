@@ -91,5 +91,24 @@ class DisciplineJController extends ResourceController
         } else {
             return $this->respond(['error' => 'Erreur lors de l\'exécution de la requête', 'status' => 0, 'data' => null], 403);
         }
-    }  
+    } 
+
+    public function get_classement_par_discipline_choisi($id_discipline = null): ResponseInterface
+    {
+        try {
+            $db = \Config\Database::connect();
+            $builder = $db->table('v_all_resultat_par_equipe_tournoi vr');
+            $builder->select('vr.*, e.*');
+            $builder->join('equipe_tournoi et', 'et.id_equipe_tournoi = vr.id_equipe_tournoi');
+            $builder->join('equipe e', 'e.id_equipe = et.id_equipe');
+            $builder->join('poule p', 'p.id_poule = et.id_poule');
+            $builder->where('p.id_discipline', $id_discipline);
+            $builder->orderBy('vr.points', 'DESC');
+            $query = $builder->get();
+            $result = $query->getResult();
+            return $this->respond(['error' => null, 'status' => 1, 'data' => $result]);
+        } catch (Exception $ex) {
+            return $this->respond(['error' => $ex, 'status' => 0, 'data' => null], 403);
+        }
+    }
 }
