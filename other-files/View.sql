@@ -7,12 +7,15 @@ SELECT
     et.id_tournoi,
     t.nom as nom_tournoi,
     et.id_poule,
-    p.nom as nom_poule
+    p.nom as nom_poule,
+    p.id_discipline,
+    d.nom as nom_discipline
 FROM
     equipe_tournoi et
     JOIN equipe e ON et.id_equipe = e.id_equipe
     JOIN tournoi t ON et.id_tournoi = t.id_tournoi
-    JOIN poule p ON et.id_poule = p.id_poule;
+    JOIN poule p ON et.id_poule = p.id_poule
+    JOIN discipline d ON p.id_discipline = d.id_discipline;
    
 SELECT * FROM v_equipe_tournoi_lib_comp;
     
@@ -22,12 +25,14 @@ SELECT
     et.id_equipe_tournoi,
     e.nom_equipe,
     t.nom as nom_tournoi,
-    p.nom as nom_poule
+    p.nom as nom_poule,
+    d.nom as nom_discipline
 FROM
     equipe_tournoi et
     JOIN equipe e ON et.id_equipe = e.id_equipe
     JOIN tournoi t ON et.id_tournoi = t.id_tournoi
-    JOIN poule p ON et.id_poule = p.id_poule;
+    JOIN poule p ON et.id_poule = p.id_poule
+    JOIN discipline d ON p.id_discipline = d.id_discipline;
     
 SELECT * FROM v_equipe_tournoi_lib;
 
