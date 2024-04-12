@@ -21,7 +21,7 @@ class EquipeController extends ResourceController
             'error' => null
         ];
 
-        return $this->respond($data, 403);
+        return $this->respond($data);
     }
 
     public function get_equipes_by_tournoi_discipline($id_discipline, $id_tournoi)
