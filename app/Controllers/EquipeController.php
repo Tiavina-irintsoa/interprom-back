@@ -7,6 +7,7 @@ use App\Models\VEquipeTournoiLibCompModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 use App\Models\EquipeJModel;
+use CodeIgniter\Database\Exceptions\DatabaseException;
 
 class EquipeController extends ResourceController
 {
@@ -74,6 +75,8 @@ class EquipeController extends ResourceController
             }
             return $this->respond(['message' => 'Import succes'], 200);
         } catch (\Exception $e) {
+            return $this->respond(['message' => 'An error occurred during the import process'], 500);
+        } catch (DatabaseException $e){
             return $this->respond(['message' => 'An error occurred during the import process'], 500);
         }
     }

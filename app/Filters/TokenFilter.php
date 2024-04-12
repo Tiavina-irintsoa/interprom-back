@@ -14,13 +14,12 @@ class TokenFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         $headers = $request->getHeaders();
-        if (!isset($headers['Authorization']) || !isset($headers['Id'])) {
+        if (!isset($headers['Authorization'])) {
             return Services::response()
                 ->setStatusCode(401)
                 ->setJSON(['message' => 'Unauthorized']);
         }
         $token = $headers['Authorization']->getValue();
-        $id = $headers['Id']->getValue();
         if (!$token) {
             return Services::response()
                 ->setStatusCode(401)
@@ -29,11 +28,6 @@ class TokenFilter implements FilterInterface
         $token = str_replace('Bearer ', '', $token);
         try {
             $decoded = JWT::decode($token, new Key(getenv('JWT_SECRET'), 'HS256'));
-            if ($id != $decoded->id) {
-                return Services::response()
-                    ->setStatusCode(401)
-                    ->setJSON(['message' => 'Invalid token']);
-            }
             return request();
         } catch (\Firebase\JWT\ExpiredException $e) {
             return Services::response()
