@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Models;
 use App\Models\EquipeJModel;
 use App\Models\PouleJModel;
 use CodeIgniter\Model;

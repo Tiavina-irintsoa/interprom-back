@@ -12,7 +12,8 @@ $routes->group('api', function($routes)
     $routes->resource('utilisateur', ['controller' => 'UtilisateurJController']);
     $routes->resource('discipline', ['controller' => 'DisciplineJController']);
     $routes->resource('matchs', ['controller' => 'MatchController']);
-    
+    $routes->resource('type-matchs', ['controller' => 'TypeMatchController']);
+    $routes->resource('tournoi-equipes', ['controller' => 'TournoiEquipeController']);
     $routes->resource('poule', ['controller' => 'PouleJController']);
 });
 

@@ -86,3 +86,6 @@ CREATE  TABLE "public".resultat (
 	CONSTRAINT fk_resultat_match FOREIGN KEY ( id_match ) REFERENCES "public"."match"( id_match )   ,
 	CONSTRAINT fk_resultat_equipe_tournoi FOREIGN KEY ( id_equipe_tournoi ) REFERENCES "public".equipe_tournoi( id_equipe_tournoi )   
  );
+
+ALTER TABLE match ALTER COLUMN debut_reel DROP DEFAULT;
+ALTER TABLE match ALTER COLUMN fin_reel DROP DEFAULT;
