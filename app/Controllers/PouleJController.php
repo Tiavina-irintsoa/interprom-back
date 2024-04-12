@@ -16,7 +16,7 @@ class PouleJController extends ResourceController
             $poules = $model->findAll();
             return $this->respond(['error' => null, 'status' => 1, 'data' => $poules]);
         }catch(Exception $ex) {
-            return $this->respond(['error' => $ex, 'status' => 0, 'data' => null]);
+            return $this->respond(['error' => $ex, 'status' => 0, 'data' => null], 403);
         }
     }
 
@@ -84,11 +84,11 @@ class PouleJController extends ResourceController
             $result = $query->getResult();
             return $this->respond(['error' => null, 'status' => 1, 'data' => $result]);
         }catch(Exception $ex) {
-            return $this->respond(['error' => $ex, 'status' => 0, 'data' => null]);
+            return $this->respond(['error' => $ex, 'status' => 0, 'data' => null], 403);
         }
     }
 
-    public function get_classement_par_poule_choisi($id_poule = 1): ResponseInterface
+    public function get_classement_par_poule_choisi($id_poule = null, $id_discipline = null): ResponseInterface
     {
         try {
             $db = \Config\Database::connect();
@@ -97,12 +97,13 @@ class PouleJController extends ResourceController
             $builder->join('equipe_tournoi et', 'et.id_equipe_tournoi = vr.id_equipe_tournoi');
             $builder->join('equipe e', 'e.id_equipe = et.id_equipe');
             $builder->where('et.id_poule', $id_poule);
+            $builder->where('et.id_poule', $id_poule);
             $builder->orderBy('vr.points', 'DESC');
             $query = $builder->get();
             $result = $query->getResult();
             return $this->respond(['error' => null, 'status' => 1, 'data' => $result]);
         } catch (Exception $ex) {
-            return $this->respond(['error' => $ex, 'status' => 0, 'data' => null]);
+            return $this->respond(['error' => $ex, 'status' => 0, 'data' => null], 403);
         }
     }    
 }

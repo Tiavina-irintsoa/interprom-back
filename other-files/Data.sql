@@ -90,22 +90,3 @@ CREATE  TABLE "public".resultat (
 ALTER TABLE match ALTER COLUMN debut_reel DROP DEFAULT;
 ALTER TABLE match ALTER COLUMN fin_reel DROP DEFAULT;
 
-CREATE VIEW "public".v_resultat_par_equipe_tournoi AS  SELECT r.id_equipe_tournoi,
-    sum(r.point) AS points,
-    sum(
-        CASE
-            WHEN (r.score_marque > r.score_encaisse) THEN 1
-            ELSE 0
-        END) AS w,
-    sum(
-        CASE
-            WHEN (r.score_marque = r.score_encaisse) THEN 1
-            ELSE 0
-        END) AS n,
-    sum(
-        CASE
-            WHEN (r.score_marque < r.score_encaisse) THEN 1
-            ELSE 0
-        END) AS l
-   FROM resultat r
-  GROUP BY r.id_equipe_tournoi;
