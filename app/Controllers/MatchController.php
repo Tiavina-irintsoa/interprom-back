@@ -11,6 +11,7 @@ use App\Models\VMatchLibModel;
 use App\Models\EquipeTournoiJModel;
 use App\Models\DisciplineJModel;
 use App\Models\TypeMatchJModel;
+use CodeIgniter\Database\Exceptions\DatabaseException;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 
@@ -255,6 +256,8 @@ class MatchController extends ResourceController
             }
             return $this->respond(['message' => 'Import succes'], 200);
         } catch (\Exception $e) {
+            return $this->respond(['message' => 'An error occurred during the import process'], 500);
+        } catch (DatabaseException $e){
             return $this->respond(['message' => 'An error occurred during the import process'], 500);
         }
     }
