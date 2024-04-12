@@ -12,7 +12,7 @@ $routes->group('api', function($routes)
     $routes->resource('utilisateur', ['controller' => 'UtilisateurJController']);
     $routes->resource('discipline', ['controller' => 'DisciplineJController']);
     $routes->resource('matchs', ['controller' => 'MatchController']);
-    
+    $routes->resource('type-match', ['controller' => 'TypeMatchController']);
     $routes->resource('poule', ['controller' => 'PouleJController']);
 });
 
