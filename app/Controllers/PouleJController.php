@@ -14,8 +14,7 @@ class PouleJController extends ResourceController
         try{
             $model = new PouleJModel();
             $poules = $model->findAll();
-            $result = $this->respond($poules);
-            return $this->respond(['error' => null, 'status' => 1, 'data' => $result]);
+            return $this->respond(['error' => null, 'status' => 1, 'data' => $poules]);
         }catch(Exception $ex) {
             return $this->respond(['error' => $ex, 'status' => 0, 'data' => null]);
         }
