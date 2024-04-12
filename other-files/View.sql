@@ -64,8 +64,6 @@ FROM
 ORDER BY 
     m.date_, m.debut_prevision;
    
-SELECT * FROM v_match_lib_orderd_by_date;
-   
 create view v_equipe_tournoi_t_lib as (
     select 
     id_equipe_tournoi, equipe.nom_equipe,id_tournoi
@@ -96,7 +94,7 @@ SELECT r.id_equipe_tournoi,
     count(*) AS mj
    FROM resultat r
   GROUP BY r.id_equipe_tournoi;
-  
+
 CREATE OR REPLACE VIEW "public".v_all_resultat_par_equipe_tournoi AS  
     SELECT et.id_equipe_tournoi, 
         COALESCE(vr.points, 0) as points, COALESCE(vr.w, 0) AS w, 

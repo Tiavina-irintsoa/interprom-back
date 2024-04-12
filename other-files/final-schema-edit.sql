@@ -13,8 +13,8 @@ CREATE OR REPLACE VIEW v_match_lib_orderd_by_date AS
 SELECT
     m.id_match, 
     et1.id_tournoi,
-    e1.nom_equipe as nom_equipe_1,
-    e2.nom_equipe as nom_equipe_2,
+    ( et1.code_equipe || ' - ' || e1.nom_equipe )::varchar as nom_equipe_1 ,
+    ( et2.code_equipe || ' - ' || e2.nom_equipe )::varchar as nom_equipe_2,
     date_,
     debut_prevision,
     debut_reel,
@@ -24,6 +24,7 @@ SELECT
     score_equipe_1,
     score_equipe_2,
     tm.nom as nom_type_match,
+    m.id_discipline,
     m.terrain
 FROM
     match m
@@ -36,12 +37,14 @@ FROM
 ORDER BY 
     m.date_, m.debut_prevision;
 
+DROP VIEW v_equipe_tournoi_lib;
+
 -- View de l'équipe dans chaque tournoi détaillée
 CREATE OR REPLACE VIEW v_equipe_tournoi_lib_comp AS
 SELECT 
     et.id_equipe_tournoi,
     et.id_equipe,
-    (et.code_equipe || e.nom_equipe)::varchar as nom_equipe,
+    (et.code_equipe || ' - ' || e.nom_equipe)::varchar as nom_equipe,
     et.id_tournoi,
     t.nom as nom_tournoi,
     et.id_poule,
@@ -59,7 +62,7 @@ FROM
 CREATE OR REPLACE VIEW v_equipe_tournoi_lib AS
 SELECT 
     et.id_equipe_tournoi,
-    (et.code_equipe || e.nom_equipe)::varchar as nom_equipe ,
+    (et.code_equipe || ' - ' || e.nom_equipe)::varchar as nom_equipe ,
     t.nom as nom_tournoi,
     p.nom as nom_poule,
     d.nom as nom_discipline
