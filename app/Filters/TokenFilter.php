@@ -13,20 +13,24 @@ class TokenFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        $data = $this->$request->getJSON();
-        if (!isset($data->id_user)) {
+        // if (!isset($data->id_user)) {
+        //     return Services::response()
+        //         ->setStatusCode(401)
+        //         ->setJSON(['message' => 'Unauthorized']);
+        // }
+        $headers = $request->getHeaders();
+        if (!isset($headers['Authorization']) || !isset($headers['Id'])) {
             return Services::response()
                 ->setStatusCode(401)
                 ->setJSON(['message' => 'Unauthorized']);
         }
-        $headers = $request->getHeaders();
         $token = $headers['Authorization']->getValue();
+        $id = $headers['Id']->getValue();
         if (!$token) {
             return Services::response()
                 ->setStatusCode(401)
                 ->setJSON(['message' => 'Unauthorized']);
         }
-        $id = $data->id_user;
         $token = str_replace('Bearer ', '', $token);
         try {
             $decoded = JWT::decode($token, new Key(getenv('JWT_SECRET'), 'HS256'));

@@ -23,8 +23,8 @@ $routes->post('login','LoginController::index');
 $routes->get('api/equipes/tournoi', 'EquipeController::tournoi',['filter' => \App\Filters\TokenFilter::class]);
 
 // Import
-$routes->post('api/equipes/import', 'EquipeController::import_equipe');
-$routes->post('api/matchs/import', 'MatchController::import_match');
+$routes->post('api/equipes/import', 'EquipeController::import_equipe',['filter' => \App\Filters\TokenFilter::class]);
+$routes->post('api/matchs/import', 'MatchController::import_match',['filter' => \App\Filters\TokenFilter::class]);
 
 
 
