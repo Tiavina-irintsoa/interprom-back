@@ -23,4 +23,19 @@ class EquipeController extends ResourceController
 
         return $this->respond($data);
     }
+
+    public function get_equipes_by_tournoi_discipline($id_discipline, $id_tournoi)
+    {
+        $equipe_tournoi = new VEquipeTournoiLibCompModel();
+        $equipe_tournoi->select('id_equipe_tournoi, nom_equipe, nom_poule, nom_discipline, nom_tournoi');
+        $equipes = $equipe_tournoi->where('id_tournoi', $id_tournoi)->where('id_discipline', $id_discipline)->findAll();
+
+        $data = [
+            'status' => 1,
+            'data' => $equipes,
+            'error' => null
+        ];
+
+        return $this->respond($data);
+    }
 }
