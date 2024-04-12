@@ -90,3 +90,10 @@ CREATE  TABLE "public".resultat (
 ALTER TABLE match ALTER COLUMN debut_reel DROP DEFAULT;
 ALTER TABLE match ALTER COLUMN fin_reel DROP DEFAULT;
 
+UPDATE match SET score_equipe_1 = 0 WHERE score_equipe_1 IS NULL; 
+UPDATE match SET score_equipe_2 = 0 WHERE score_equipe_2 IS NULL; 
+ALTER TABLE match ALTER COLUMN score_equipe_1 SET NOT NULL;
+ALTER TABLE match ALTER COLUMN score_equipe_1 SET DEFAULT 0;
+ALTER TABLE match ALTER COLUMN score_equipe_2 SET NOT NULL;
+ALTER TABLE match ALTER COLUMN score_equipe_2 SET DEFAULT 0;
+

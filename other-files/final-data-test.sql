@@ -1,3 +1,5 @@
+-- WE JUST TRUNCATE AND ADD ALL DATA AFTER, DON'T FORGET TO REGISTER NEW STUDENT
+
 -- Insertion des tournois
 INSERT INTO tournoi VALUES
 (1, 'Inter Prom 2024');
@@ -101,6 +103,8 @@ INSERT INTO type_match VALUES
 (3, 'Quart de Finale', 3),
 (4, 'Demi-Finale', 4),
 (5, 'Finale', 5);
+
+ALTER SEQUENCE type_match_id_type_match_seq RESTART 6;
 
 -- Insertion des programmes de match
 INSERT INTO match
