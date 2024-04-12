@@ -74,7 +74,7 @@ create view v_equipe_tournoi_t_lib as (
 );
 
 -- W N L equipe par match
-CREATE VIEW "public".v_resultat_par_equipe_tournoi AS  SELECT r.id_equipe_tournoi,
+CREATE OR REPLACE VIEW "public".v_resultat_par_equipe_tournoi AS  SELECT r.id_equipe_tournoi,
     sum(r.point) AS points,
     sum(
         CASE
@@ -96,7 +96,7 @@ CREATE VIEW "public".v_resultat_par_equipe_tournoi AS  SELECT r.id_equipe_tourno
 -- ------------------------------------------------------------------------------
 -- ------------------------------------------------------------------------------
 -- ------------------------------------------------------------------------------
-CREATE OR VIEW "public".v_all_resultat_par_equipe_tournoi AS  
+CREATE OR REPLACE VIEW "public".v_all_resultat_par_equipe_tournoi AS  
     SELECT et.id_equipe_tournoi, 
         COALESCE(vr.points, 0) as points, COALESCE(vr.w, 0) AS w, 
         COALESCE(vr.n, 0) AS n, COALESCE(vr.l, 0) AS l
