@@ -60,3 +60,10 @@ ORDER BY
    
 SELECT * FROM v_match_lib_orderd_by_date;
    
+create view v_equipe_tournoi_t_lib as (
+    select 
+    id_equipe_tournoi, equipe.nom_equipe,id_tournoi
+    from equipe_tournoi
+    join equipe
+        on equipe.id_equipe = equipe_tournoi.id_equipe
+);

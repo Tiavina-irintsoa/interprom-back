@@ -291,3 +291,25 @@ in SYSTEMPATH/Database/Postgre/Connection.php on line 192.
 13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
 14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
 15 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 02:46:39 --> Error: Undefined constant "App\Controllers\this"
+[Method: GET, Route: api/type-match]
+in APPPATH/Controllers/TypeMatchController.php on line 14.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TypeMatchController->index()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 03:01:40 --> ErrorException: Undefined variable $model
+[Method: GET, Route: api/tournoi-equipes]
+in APPPATH/Models/VEquipeTournoiTLib.php on line 13.
+ 1 APPPATH/Models/VEquipeTournoiTLib.php(13): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/TournoiEquipeController.php(15): App\Models\VEquipeTournoiTLib->get_teams_of_this_tournament()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TournoiEquipeController->index()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
