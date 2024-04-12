@@ -102,6 +102,8 @@ class PouleJController extends ResourceController
             $builder->where('et.id_poule', $id_poule);
             $builder->where('et.id_poule', $id_poule);
             $builder->orderBy('vr.points', 'DESC');
+            $builder->orderBy('vr.difference_score', 'DESC');
+            $builder->orderBy('vr.score_marque', 'DESC');
             $query = $builder->get();
             $result = $query->getResult();
             return $this->respond(['error' => null, 'status' => 1, 'data' => $result]);

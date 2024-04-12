@@ -83,7 +83,7 @@ SELECT r.id_equipe_tournoi,
         END) AS w,
     sum(
         CASE
-            WHEN (r.score_marque = r.score_encaisse AND r.score_marque <= 0) THEN 1
+            WHEN (r.score_marque = r.score_encaisse) THEN 1
             ELSE 0
         END) AS n,
     sum(
@@ -91,7 +91,9 @@ SELECT r.id_equipe_tournoi,
             WHEN (r.score_marque < r.score_encaisse) THEN 1
             ELSE 0
         END) AS l,
-    count(*) AS mj
+    count(*) AS mj,
+    sum(COALESCE(r.score_marque, 0)) AS score_marque,
+    sum(COALESCE(r.score_marque, 0) - COALESCE(r.score_encaisse, 0)) AS difference_score
    FROM resultat r
   GROUP BY r.id_equipe_tournoi;
 
@@ -99,6 +101,6 @@ CREATE OR REPLACE VIEW "public".v_all_resultat_par_equipe_tournoi AS
     SELECT et.id_equipe_tournoi, 
         COALESCE(vr.points, 0) as points, COALESCE(vr.w, 0) AS w, 
         COALESCE(vr.n, 0) AS n, COALESCE(vr.l, 0) AS l,
-        COALESCE(vr.mj, 0) AS mj
+        COALESCE(vr.mj, 0) AS mj, vr.score_marque, vr.difference_score
         FROM equipe_tournoi et
         LEFT JOIN v_resultat_par_equipe_tournoi vr ON vr.id_equipe_tournoi = et.id_equipe_tournoi
