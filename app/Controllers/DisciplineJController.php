@@ -20,8 +20,7 @@ class DisciplineJController extends ResourceController
         try{
             $model = new DisciplineJModel();
             $disciplines = $model->findAll();
-            $result = $this->respond($disciplines);
-            return $this->respond(['error' => null, 'status' => 1, 'data' => $result]);
+            return $this->respond(['error' => null, 'status' => 1, 'data' => $disciplines]);
         }catch(Exception $ex) {
             return $this->respond(['error' => $ex, 'status' => 0, 'data' => null]);
         }
