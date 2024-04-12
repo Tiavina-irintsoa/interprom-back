@@ -82,7 +82,7 @@ class MatchController extends ResourceController{
         $data = [
             'status' => 1,
             'data' => $matchs,
-            'null' => null
+            'error' => null
         ];
 
         return $this->respond($data);
@@ -122,7 +122,8 @@ class MatchController extends ResourceController{
         if (!isset($match)) {
             return $this->respond([
                 'status' => 0,
-                'error' => "Le match que vous voulez commencer n' éxiste pas"
+                'error' => "Le match que vous voulez commencer n' éxiste pas",
+                'data' => null
             ]);
         }
 
