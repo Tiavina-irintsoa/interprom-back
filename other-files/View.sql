@@ -1,9 +1,9 @@
 -- View de l'équipe dans chaque tournoi détaillée
-CREATE VIEW v_equipe_tournoi_lib_comp AS
+CREATE OR REPLACE VIEW v_equipe_tournoi_lib_comp AS
 SELECT 
     et.id_equipe_tournoi,
     et.id_equipe,
-    e.nom_equipe,
+    (et.code_equipe || ' - ' || e.nom_equipe)::varchar as nom_equipe,
     et.id_tournoi,
     t.nom as nom_tournoi,
     et.id_poule,
@@ -20,10 +20,10 @@ FROM
 SELECT * FROM v_equipe_tournoi_lib_comp;
     
 -- View de l'équipe dans chaque tournoi avec leur libéllé
-CREATE VIEW v_equipe_tournoi_lib AS
+CREATE OR REPLACE VIEW v_equipe_tournoi_lib AS
 SELECT 
     et.id_equipe_tournoi,
-    e.nom_equipe,
+    (et.code_equipe || ' - ' || e.nom_equipe)::varchar as nom_equipe ,
     t.nom as nom_tournoi,
     p.nom as nom_poule,
     d.nom as nom_discipline
@@ -37,7 +37,7 @@ FROM
 SELECT * FROM v_equipe_tournoi_lib;
 
 -- View affichant les matchs par discipline par tournoi ordonnée par date et heure prevision debut
-CREATE VIEW v_match_lib_orderd_by_date AS
+CREATE OR REPLACE VIEW v_match_lib_orderd_by_date AS
 SELECT
     m.id_match, 
     et1.id_tournoi,
@@ -51,7 +51,8 @@ SELECT
     d.nom as nom_discipline,
     score_equipe_1,
     score_equipe_2,
-    tm.nom as nom_type_match
+    tm.nom as nom_type_match,
+    m.terrain
 FROM
     match m
     JOIN equipe_tournoi et1 ON m.id_equipe_tournoi_1 = et1.id_equipe_tournoi
@@ -93,9 +94,7 @@ CREATE OR REPLACE VIEW "public".v_resultat_par_equipe_tournoi AS  SELECT r.id_eq
         END) AS l
    FROM resultat r
   GROUP BY r.id_equipe_tournoi;
--- ------------------------------------------------------------------------------
--- ------------------------------------------------------------------------------
--- ------------------------------------------------------------------------------
+  
 CREATE OR REPLACE VIEW "public".v_all_resultat_par_equipe_tournoi AS  
     SELECT et.id_equipe_tournoi, 
         COALESCE(vr.points, 0) as points, COALESCE(vr.w, 0) AS w, 
