@@ -14,7 +14,7 @@ CREATE  TABLE "public".equipe (
 	id_equipe            serial  NOT NULL  ,
 	nom_equipe           varchar  NOT NULL  ,
 	CONSTRAINT pk_equipe PRIMARY KEY ( id_equipe )
- );
+ ); 
 
 CREATE  TABLE "public".poule ( 
 	id_poule             serial  NOT NULL  ,

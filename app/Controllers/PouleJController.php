@@ -68,7 +68,7 @@ class PouleJController extends ResourceController
         }
     }
 
-    public function get_resultat_poule_choisie($id_discipline = null, $id_poule = null): ResponseInterface
+    public function get_resultat_poule_choisie($id_poule = null): ResponseInterface
     {
         try{
             $db = \Config\Database::connect();
@@ -82,7 +82,6 @@ class PouleJController extends ResourceController
             $builder->join('equipe e2', 'e2.id_equipe = et2.id_equipe', 'left');
             $builder->where('p1.id_poule', $id_poule);
             $builder->where('p2.id_poule', $id_poule);
-            $builder->where('p2.id_discipline', $id_discipline);
             $query = $builder->get();
             $result = $query->getResult();
             return $this->respond(['error' => null, 'status' => 1, 'data' => $result]);
@@ -91,18 +90,17 @@ class PouleJController extends ResourceController
         }
     }
 
-    public function get_classement_par_poule_choisi($id_discipline = null, $id_poule = null): ResponseInterface
+    public function get_classement_par_poule_choisi($id_poule = null): ResponseInterface
     {
         try {
             $db = \Config\Database::connect();
-            $builder = $db->table('v_resultat_par_equipe_tournoi vr');
+            $builder = $db->table('v_all_resultat_par_equipe_tournoi vr');
             $builder->select('vr.*, e.*');
             $builder->join('equipe_tournoi et', 'et.id_equipe_tournoi = vr.id_equipe_tournoi');
             $builder->join('equipe e', 'e.id_equipe = et.id_equipe');
             $builder->join('poule p', 'p.id_poule = et.id_poule');
             $builder->where('et.id_poule', $id_poule);
             $builder->where('et.id_poule', $id_poule);
-            $builder->where('p.id_discipline', $id_discipline);
             $builder->orderBy('vr.points', 'DESC');
             $query = $builder->get();
             $result = $query->getResult();
@@ -110,7 +108,7 @@ class PouleJController extends ResourceController
         } catch (Exception $ex) {
             return $this->respond(['error' => $ex, 'status' => 0, 'data' => null], 403);
         }
-    }    
+    }  
 }
 
 

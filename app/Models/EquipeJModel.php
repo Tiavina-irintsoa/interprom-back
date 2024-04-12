@@ -14,6 +14,8 @@ class EquipeJModel extends Model
         'nom_equipe'
     ];
 
+    protected $allowedFields = ['nom_equipe'];
+
     public function poule()
     {
         return $this->belongsTo(PouleJModel::class, 'id_poule', 'id_poule');

@@ -1,0 +1,15 @@
+CRITICAL - 2024-04-12 15:32:21 --> CodeIgniter\Database\Exceptions\DataException: Allowed fields must be specified for model: "App\Models\ResultatJModel"
+[Method: GET, Route: api/end-match/2]
+in SYSTEMPATH/Model.php on line 812.
+ 1 SYSTEMPATH/Model.php(812): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields()
+ 2 SYSTEMPATH/BaseModel.php(821): CodeIgniter\Model->doProtectFieldsForInsert()
+ 3 SYSTEMPATH/Model.php(790): CodeIgniter\BaseModel->insert()
+ 4 APPPATH/Controllers/MatchController.php(254): CodeIgniter\Model->insert()
+ 5 APPPATH/Controllers/MatchController.php(203): App\Controllers\MatchController->insert_resultat()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->end_match()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(62): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')

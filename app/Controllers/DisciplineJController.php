@@ -21,7 +21,7 @@ class DisciplineJController extends ResourceController
             $model = new DisciplineJModel();
             $disciplines = $model->findAll();
             return $this->respond(['error' => null, 'status' => 1, 'data' => $disciplines]);
-        }catch(Exception $ex) {
+        }catch(\Exception $ex) {
             return $this->respond(['error' => $ex, 'status' => 0, 'data' => null], 403);
         }
     }
@@ -74,4 +74,22 @@ class DisciplineJController extends ResourceController
             return $this->failServerError('Erreur lors de la suppression de la discipline');
         }
     }
+
+    
+    public function get_all_poule_by_discipline($id_discipline = null): ResponseInterface
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('poule');
+        $builder->select('*');
+        $builder->where('id_discipline', $id_discipline);
+
+        $query = $builder->get();
+
+        if ($query) {
+            $result = $query->getResult();
+            return $this->respond(['error' => null, 'status' => 1, 'data' => $result]);
+        } else {
+            return $this->respond(['error' => 'Erreur lors de l\'exécution de la requête', 'status' => 0, 'data' => null], 403);
+        }
+    }  
 }
