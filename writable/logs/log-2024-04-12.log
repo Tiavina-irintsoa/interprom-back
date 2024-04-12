@@ -1,0 +1,129 @@
+CRITICAL - 2024-04-12 01:44:55 --> Error: Class "App\Models\EquipeTournoiJModel" not found
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 18.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:50:41 --> Error: Class "App\Models\EquipeTournoiJModel" not found
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 18.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:51:39 --> Error: Class "Codeigniter\Model" not found
+[Method: POST, Route: api/matchs]
+in APPPATH/Models/EquipeTournoiJModel.php on line 7.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(317): include_once()
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 3 SYSTEMPATH/Autoloader/Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 4 APPPATH/Controllers/MatchController.php(18): CodeIgniter\Autoloader\Autoloader->loadClass()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:51:58 --> Error: Class "App\Models\EquipeTournoiJModel" not found
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 18.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:54:29 --> ErrorException: Undefined variable $data
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 19.
+ 1 APPPATH/Controllers/MatchController.php(19): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:56:41 --> ErrorException: Undefined property: stdClass::$id_equipe_tournoi2
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 24.
+ 1 APPPATH/Controllers/MatchController.php(24): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:57:06 --> Error: Call to undefined function App\Controllers\is_valid_date()
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 28.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:59:04 --> Error: Cannot call constructor
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 16.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\MatchController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 01:59:50 --> Error: Cannot call constructor
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 16.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\MatchController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 02:00:03 --> ErrorException: Undefined property: stdClass::$date
+[Method: POST, Route: api/matchs]
+in APPPATH/Controllers/MatchController.php on line 30.
+ 1 APPPATH/Controllers/MatchController.php(30): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 02:01:49 --> ArgumentCountError: Too few arguments to function date_not_in_future(), 1 passed in /var/www/html/interprom-back/app/Controllers/MatchController.php on line 30 and exactly 2 expected
+[Method: POST, Route: api/matchs]
+in APPPATH/Helpers/my_date_helper.php on line 16.
+ 1 APPPATH/Controllers/MatchController.php(30): date_not_in_future()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
+CRITICAL - 2024-04-12 02:02:27 --> Error: Class "Time" not found
+[Method: POST, Route: api/matchs]
+in APPPATH/Helpers/my_date_helper.php on line 27.
+ 1 APPPATH/Controllers/MatchController.php(33): is_before()
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/var/www/html/interprom-back/public/index.php')
