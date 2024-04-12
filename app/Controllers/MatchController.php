@@ -81,7 +81,8 @@ class MatchController extends ResourceController{
 
         $data = [
             'status' => 1,
-            'data' => $matchs
+            'data' => $matchs,
+            'error' => null
         ];
 
         return $this->respond($data);
@@ -121,14 +122,16 @@ class MatchController extends ResourceController{
         if (!isset($match)) {
             return $this->respond([
                 'status' => 0,
-                'error' => "Le match que vous voulez commencer n' éxiste pas"
+                'error' => "Le match que vous voulez commencer n' éxiste pas",
+                'data' => null
             ]);
         }
 
         if (isset($match['debut_reel'])) {
             return $this->respond([
                 'status' => 0,
-                'error' => "Le match que vous voulez spécifier a déja commencé !"
+                'error' => "Le match que vous voulez spécifier a déja commencé !",
+                'data' => null
             ]);
         }
 
@@ -142,7 +145,8 @@ class MatchController extends ResourceController{
 
         return $this->respond([
             'status' => 1,
-            'data' => 'Match commencé avec success !'
+            'data' => 'Match commencé avec success !',
+            'error' => null
         ]);
     }
 
@@ -154,14 +158,16 @@ class MatchController extends ResourceController{
         if (!isset($match)) {
             return $this->respond([
                 'status' => 0,
-                'error' => "Le match que vous voulez terminer n' éxiste même pas"
+                'error' => "Le match que vous voulez terminer n' éxiste même pas",
+                'data' => null
             ]);
         }
 
         if (isset($match['fin_reel'])) {
             return $this->respond([
                 'status' => 0,
-                'error' => "Le match que vous voulez spécifié est déja terminer !"
+                'error' => "Le match que vous voulez spécifié est déja terminer !",
+                'data' => null
             ]);
         }
 
@@ -175,7 +181,8 @@ class MatchController extends ResourceController{
 
         return $this->respond([
             'status' => 1,
-            'data' => 'Match terminé avec success !'
+            'data' => 'Match terminé avec success !',
+            'error' => null
         ]);
     }
 }

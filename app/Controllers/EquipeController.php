@@ -17,7 +17,8 @@ class EquipeController extends ResourceController
 
         $data = [
             'status' => 1,
-            'data' => $equipes
+            'data' => $equipes,
+            'error' => null
         ];
 
         return $this->respond($data);
