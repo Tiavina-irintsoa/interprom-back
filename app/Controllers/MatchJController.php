@@ -28,7 +28,7 @@ class MatchJController extends ResourceController
             $result = $query->getResult();
             return $this->respond(['error' => null, 'status' => 1, 'data' => $result]);
         } else {
-            return $this->respond(['error' => 'Erreur lors de l\'exécution de la requête', 'status' => 0, 'data' => null]);
+            return $this->respond(['error' => 'Erreur lors de l\'exécution de la requête', 'status' => 0, 'data' => null], 403);
         }
     }
 
@@ -50,7 +50,7 @@ class MatchJController extends ResourceController
             $result = $query->getResult();
             return $this->respond(['error' => null, 'status' => 1, 'data' => $result]);
         } else {
-            return $this->respond(['error' => 'Erreur lors de l\'exécution de la requête', 'status' => 0, 'data' => null]);
+            return $this->respond(['error' => 'Erreur lors de l\'exécution de la requête', 'status' => 0, 'data' => null], 403);
         }
     }
 }

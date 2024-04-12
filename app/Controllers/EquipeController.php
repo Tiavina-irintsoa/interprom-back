@@ -21,6 +21,6 @@ class EquipeController extends ResourceController
             'error' => null
         ];
 
-        return $this->respond($data);
+        return $this->respond($data, 403);
     }
 }

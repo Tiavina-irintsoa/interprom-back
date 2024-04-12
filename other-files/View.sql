@@ -16,7 +16,7 @@ FROM
     JOIN tournoi t ON et.id_tournoi = t.id_tournoi
     JOIN poule p ON et.id_poule = p.id_poule
     JOIN discipline d ON p.id_discipline = d.id_discipline;
-   
+
 SELECT * FROM v_equipe_tournoi_lib_comp;
     
 -- View de l'équipe dans chaque tournoi avec leur libéllé
@@ -33,7 +33,7 @@ FROM
     JOIN tournoi t ON et.id_tournoi = t.id_tournoi
     JOIN poule p ON et.id_poule = p.id_poule
     JOIN discipline d ON p.id_discipline = d.id_discipline;
-    
+
 SELECT * FROM v_equipe_tournoi_lib;
 
 -- View affichant les matchs par discipline par tournoi ordonnée par date et heure prevision debut
