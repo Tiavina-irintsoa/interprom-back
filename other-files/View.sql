@@ -93,3 +93,12 @@ CREATE VIEW "public".v_resultat_par_equipe_tournoi AS  SELECT r.id_equipe_tourno
         END) AS l
    FROM resultat r
   GROUP BY r.id_equipe_tournoi;
+-- ------------------------------------------------------------------------------
+-- ------------------------------------------------------------------------------
+-- ------------------------------------------------------------------------------
+CREATE VIEW "public".v_all_resultat_par_equipe_tournoi AS  
+    SELECT et.id_equipe_tournoi, 
+        COALESCE(vr.points, 0) as points, COALESCE(vr.w, 0) AS w, 
+        COALESCE(vr.n, 0) AS n, COALESCE(vr.l, 0) AS l
+        FROM equipe_tournoi et
+        JOIN v_resultat_par_equipe_tournoi vr ON vr.id_equipe_tournoi = et.id_equipe_tournoi

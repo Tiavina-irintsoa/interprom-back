@@ -94,7 +94,7 @@ class PouleJController extends ResourceController
     {
         try {
             $db = \Config\Database::connect();
-            $builder = $db->table('v_resultat_par_equipe_tournoi vr');
+            $builder = $db->table('v_all_resultat_par_equipe_tournoi vr');
             $builder->select('vr.*, e.*');
             $builder->join('equipe_tournoi et', 'et.id_equipe_tournoi = vr.id_equipe_tournoi');
             $builder->join('equipe e', 'e.id_equipe = et.id_equipe');
