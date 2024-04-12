@@ -1,19 +1,39 @@
 <?php
 
 namespace App\Controllers;
-
+helper('date_helper');
 use App\Controllers\BaseController;
 use App\Models\MatchJModel;
 use App\Models\MatchModel;
 use App\Models\VMatchLibModel;
+use App\Models\EquipeTournoiJModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 
 class MatchController extends ResourceController{
     protected $format = 'json';
 
+
     public function create()
     {
+        helper('my_date_helper');
+        $data=$this->request->getJSON();
+        $equipe_tournoi_model = new EquipeTournoiJModel();
+        $eq_t_1=$equipe_tournoi_model->find($data->id_equipe_tournoi_1);
+        if(!$eq_t_1){
+            return $this->respond(array('error'=>'L\'équipe 1 choisie ne participe pas à ce tournoi','data'=>null,'status'=>0));
+        }
+        $eq_t_2=$equipe_tournoi_model->find($data->id_equipe_tournoi_2);
+        if(!$eq_t_2){
+            return $this->respond(array('error'=>'L\'équipe 2 choisie ne participe pas à ce tournoi','data'=>null,'status'=>0));
+        }
+        if(is_valid_date($data->date_)==false){
+            return $this->respond(array('error'=>'Date invalide','data'=>null,'status'=>0));
+        }
+
+        if(is_before($data->debut_prevision, $data->fin_prevision)==false){
+            return $this->respond(array('error'=>'L\'heure de début doit être antérieure à l\'heure de fin','data'=>null,'status'=>0));
+        }
         $model = new MatchModel();
         $data = $this->request->getJSON();
         $model->insert($data);
@@ -24,8 +44,8 @@ class MatchController extends ResourceController{
     {
         $model = new MatchModel();
         $data = $this->request->getJSON();
-        $model->update($id, $data);
-        return $this->respond($data);
+        $match=$model->update($id, $data);
+        return $this->respond(array('error'=>null,'data'=>$match,'status'=>1));
     }
 
     public function show($id = null)
@@ -65,8 +85,6 @@ class MatchController extends ResourceController{
                 return $this->respond(array('error'=>'Ce match n\' a pas encore commencé','data'=>null,'status'=>0));
             }
         }
-        
-        
         if($data->equipe!=1 && $data->equipe!=2){
             return $this->respond(array('error'=>'L\'equipe doit être 1 ou 2','data'=>null,'status'=>0));
         }
@@ -83,7 +101,7 @@ class MatchController extends ResourceController{
         if (!isset($match)) {
             return $this->respond([
                 'status' => 0,
-                'error' => "Le match que vous voulez commencer n' éxiste même pas"
+                'error' => "Le match que vous voulez commencer n' éxiste pas"
             ]);
         }
 
