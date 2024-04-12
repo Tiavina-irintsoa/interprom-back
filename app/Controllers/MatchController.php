@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Controllers;
+
 helper('date_helper');
+
 use App\Controllers\BaseController;
 use App\Models\MatchJModel;
 use App\Models\MatchModel;
@@ -12,14 +14,15 @@ use App\Models\TypeMatchJModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 
-class MatchController extends ResourceController{
+class MatchController extends ResourceController
+{
     protected $format = 'json';
 
 
     public function create()
     {
         helper('my_date_helper');
-        $data=$this->request->getJSON();
+        $data = $this->request->getJSON();
         $equipe_tournoi_model = new EquipeTournoiJModel();
         if($data->id_equipe_tournoi_1 == $data->id_equipe_tournoi_2){
             return $this->respond(array('error'=>'Les équipes doivent être différentes','data'=>null,'status'=>0), 403);
@@ -59,8 +62,8 @@ class MatchController extends ResourceController{
     {
         $model = new MatchModel();
         $data = $this->request->getJSON();
-        $match=$model->update($id, $data);
-        return $this->respond(array('error'=>null,'data'=>$match,'status'=>1));
+        $match = $model->update($id, $data);
+        return $this->respond(array('error' => null, 'data' => $match, 'status' => 1));
     }
 
     public function show($id = null)
@@ -70,7 +73,22 @@ class MatchController extends ResourceController{
         if(!$resp){
             return $this->respond(array('error'=>'Ce match n\'existe pas','data'=>null,'status'=>0), 403);
         }
-        return $this->respond(array('error'=>null,'data'=>$resp,'status'=>1));
+        return $this->respond(array('error' => null, 'data' => $resp, 'status' => 1));
+    }
+
+    // Tous les matchs ordered by prevision date
+    public function list_match_ordered($id_tournoi = 1)
+    {
+        $model = new VMatchLibModel();
+        $matchs = $model->where('id_tournoi', $id_tournoi)->findAll();
+
+        $data = [
+            'status' => 1,
+            'data' => $matchs,
+            'error' => null
+        ];
+
+        return $this->respond($data);
     }
 
     // Match par discipline par tournoi selon ordered by prevision date
@@ -88,9 +106,10 @@ class MatchController extends ResourceController{
         return $this->respond($data);
     }
 
-    public function update_score(){
+    public function update_score()
+    {
         $model = new MatchModel();
-        $data=$this->request->getJSON();
+        $data = $this->request->getJSON();
         $match = $model->find($data->idmatch);
         if($data->points<0 || is_numeric($data->points)==false){
             return $this->respond(array('error'=>'Points invalides','data'=>null,'status'=>0), 403);
@@ -109,8 +128,8 @@ class MatchController extends ResourceController{
         if($data->equipe!=1 && $data->equipe!=2){
             return $this->respond(array('error'=>'L\'equipe doit être 1 ou 2','data'=>null,'status'=>0), 403);
         }
-        $match=$model->updateScore($data,$match);
-        return $this->respond(array('error'=>null,'data'=>$match,'status'=>1));
+        $match = $model->updateScore($data, $match);
+        return $this->respond(array('error' => null, 'data' => $match, 'status' => 1));
     }
 
     // Commencer le match 
