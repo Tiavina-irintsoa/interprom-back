@@ -18,7 +18,7 @@ class MatchModel extends Model
             $match['score_equipe_1']=$data->points;
         }
         else if($data->equipe==2){
-            $builder->where('id_match', $data->points)
+            $builder->where('id_match', $data->idmatch)
                 ->set('score_equipe_2', $data->points)
                 ->update();
             $match['score_equipe_2']=$data->points;
