@@ -1,3 +1,5 @@
+-- WE JUST TRUNCATE AND ADD ALL DATA AFTER, DON'T FORGET TO REGISTER NEW STUDENT
+
 -- Insertion des tournois
 INSERT INTO tournoi VALUES
 (1, 'Inter Prom 2024');
