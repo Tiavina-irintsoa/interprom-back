@@ -24,9 +24,9 @@ $routes->get('api/equipes/tournoi/(:num)', 'EquipeController::tournoi/$1');
 $routes->get('api/equipes/tournoi', 'EquipeController::tournoi');
 
 // A propos des matchs
-$routes->get('matchs/all/(:num)/(:num)', 'MatchController::list_match_by_discipline/$1/$2');
-$routes->get('matchs/(:num)/start', 'MatchController::start_match/$1');
-$routes->get('matchs/(:num)/end', 'MatchController::end_match/$1');
+$routes->get('api/matchs-discipline-tournoi/(:num)/(:num)', 'MatchController::list_match_by_discipline/$1/$2');
+$routes->get('api/start-match/(:num)', 'MatchController::start_match/$1');
+$routes->get('api/end-match/(:num)', 'MatchController::end_match/$1');
 
 $routes->get('api/match-en-cours', 'MatchJController::get_matche_en_cours_par_discipline');
 $routes->get('api/match-a-suivre', 'MatchJController::get_matche_a_suivre');
