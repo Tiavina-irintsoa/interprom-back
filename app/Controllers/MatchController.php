@@ -1,25 +1,30 @@
 <?php
 
 namespace App\Controllers;
+
 helper('date_helper');
+
 use App\Controllers\BaseController;
 use App\Models\MatchJModel;
 use App\Models\MatchModel;
+use App\Models\ResultatJModel;
 use App\Models\VMatchLibModel;
 use App\Models\EquipeTournoiJModel;
 use App\Models\DisciplineJModel;
 use App\Models\TypeMatchJModel;
+use CodeIgniter\Database\Exceptions\DatabaseException;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 
-class MatchController extends ResourceController{
+class MatchController extends ResourceController
+{
     protected $format = 'json';
 
 
     public function create()
     {
         helper('my_date_helper');
-        $data=$this->request->getJSON();
+        $data = $this->request->getJSON();
         $equipe_tournoi_model = new EquipeTournoiJModel();
         if($data->id_equipe_tournoi_1 == $data->id_equipe_tournoi_2){
             return $this->respond(array('error'=>'Les équipes doivent être différentes','data'=>null,'status'=>0), 403);
@@ -59,8 +64,8 @@ class MatchController extends ResourceController{
     {
         $model = new MatchModel();
         $data = $this->request->getJSON();
-        $match=$model->update($id, $data);
-        return $this->respond(array('error'=>null,'data'=>$match,'status'=>1));
+        $match = $model->update($id, $data);
+        return $this->respond(array('error' => null, 'data' => $match, 'status' => 1));
     }
 
     public function show($id = null)
@@ -70,7 +75,22 @@ class MatchController extends ResourceController{
         if(!$resp){
             return $this->respond(array('error'=>'Ce match n\'existe pas','data'=>null,'status'=>0), 403);
         }
-        return $this->respond(array('error'=>null,'data'=>$resp,'status'=>1));
+        return $this->respond(array('error' => null, 'data' => $resp, 'status' => 1));
+    }
+
+    // Tous les matchs ordered by prevision date
+    public function list_match_ordered($id_tournoi = 1)
+    {
+        $model = new VMatchLibModel();
+        $matchs = $model->where('id_tournoi', $id_tournoi)->findAll();
+
+        $data = [
+            'status' => 1,
+            'data' => $matchs,
+            'error' => null
+        ];
+
+        return $this->respond($data);
     }
 
     // Match par discipline par tournoi selon ordered by prevision date
@@ -88,9 +108,10 @@ class MatchController extends ResourceController{
         return $this->respond($data);
     }
 
-    public function update_score(){
+    public function update_score()
+    {
         $model = new MatchModel();
-        $data=$this->request->getJSON();
+        $data = $this->request->getJSON();
         $match = $model->find($data->idmatch);
         if($data->points<0 || is_numeric($data->points)==false){
             return $this->respond(array('error'=>'Points invalides','data'=>null,'status'=>0), 403);
@@ -109,8 +130,8 @@ class MatchController extends ResourceController{
         if($data->equipe!=1 && $data->equipe!=2){
             return $this->respond(array('error'=>'L\'equipe doit être 1 ou 2','data'=>null,'status'=>0), 403);
         }
-        $match=$model->updateScore($data,$match);
-        return $this->respond(array('error'=>null,'data'=>$match,'status'=>1));
+        $match = $model->updateScore($data, $match);
+        return $this->respond(array('error' => null, 'data' => $match, 'status' => 1));
     }
 
     // Commencer le match 
@@ -179,10 +200,120 @@ class MatchController extends ResourceController{
 
         $match_model->update($id_match, $update_data);
 
+        $this->insert_resultat($match);
+
         return $this->respond([
             'status' => 1,
             'data' => 'Match terminé avec success !',
             'error' => null
         ]);
+    }
+
+    public function get_point($match, $equipe_1_or_2)
+    {
+        if($match['score_equipe_1'] > $match['score_equipe_2'])
+        {
+            if($equipe_1_or_2 == 1)return 3;
+            else return 0;
+        }
+        else if($match['score_equipe_1'] < $match['score_equipe_2'])
+        {
+            if($equipe_1_or_2 == 1)return 0;
+            else return 3;
+        }else{
+            return 0;
+        }
+
+    }
+
+    public function insert_resultat($match)
+    {
+        $resultat = new ResultatJModel();
+
+        // Récupération des points et des données de résultat pour la première équipe
+        $point_1 = $this->get_point($match, 1);
+        $first_resultat = [
+            'id_equipe_tournoi' => $match['id_equipe_tournoi_1'],
+            'id_match' => $match['id_match'],
+            'point' => $point_1,
+            'score_marque' => $match['score_equipe_1'],
+            'score_encaisse' => $match['score_equipe_2']
+        ];
+
+        // Récupération des points et des données de résultat pour la deuxième équipe
+        $point_2 = $this->get_point($match, 2);
+        $second_resultat = [
+            'id_equipe_tournoi' => $match['id_equipe_tournoi_2'],
+            'id_match' => $match['id_match'],
+            'point' => $point_2,
+            'score_marque' => $match['score_equipe_2'],
+            'score_encaisse' => $match['score_equipe_1']
+        ];
+
+        // Insertion des résultats dans la base de données
+        $resultat->insert($first_resultat);
+        $resultat->insert($second_resultat);
+
+        return $this->respond([
+            'status' => 1,
+            'data' => 'Résultats insérés avec succès !',
+            'error' => null
+        ]);
+    }
+
+    public function import_match()
+    {
+        try {
+            $inserted = false;
+            $request = $this->request->getJSON();
+            if (!isset($request->base_64_file)) {
+                return $this->respond(['message' => 'base_64_file not found in the request'], 400);
+            }
+            $base64File = $request->base_64_file;
+            $csvData = base64_decode($base64File);
+            if ($csvData === false) {
+                return $this->respond(['message' => 'Failed to decode base64-encoded file'], 400);
+            }
+            $rows = explode("\n", $csvData);
+            $headers = str_getcsv(array_shift($rows));
+            $matchModel = new MatchModel();
+            $notInsertedIndices = [];
+            foreach ($rows as $row) {
+                $fields = str_getcsv($row);
+                $trimmedFields = [];
+                foreach ($fields as $index => $field) {
+                    $columnName = $headers[$index];
+                    $trimmedFields[] = in_array($columnName, [], true) ? trim($field) : $field;
+                }
+                $trimmedFields = array_map('trim', $fields);
+                if (count($headers) === count($trimmedFields)) {
+                    $data = array_combine($headers, $trimmedFields);
+                    foreach ($data as $key => $value) {
+                        if ($value === '') {
+                            $data[$key] = null;
+                        }
+                    }
+                    if ($matchModel->insert($data)) {
+                        $inserted = true;
+                    } else {
+                        $notInsertedIndices[] = $index + 1;
+                    }
+                }
+                else{
+                    $notInsertedIndices[] = $index + 1;
+                }
+            }
+            if (!$inserted) {
+                return $this->respond(['message' => 'No data inserted, verify the csv file'], 400);
+            }
+            if (count($notInsertedIndices) > 0) {
+                return $this->respond(['message' => 'Some data are not inserted', 'not_inserted_on_lines' => $notInsertedIndices], 400);
+            }
+            return $this->respond(['message' => 'Import succes'], 200);
+        } catch (\Exception $e) {
+            return $this->respond(['message' => 'An error occurred during the import process'], 500);
+        } catch (DatabaseException $e){
+            return $this->respond(['message' => 'An error occurred during the import process'], 500);
+        }
     }
 }

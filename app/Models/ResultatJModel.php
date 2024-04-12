@@ -18,6 +18,8 @@ class ResultatJModel extends Model
         'score_encaisse',
     ];
 
+    protected $allowedFields = ['id_equipe_tournoi', 'id_match', 'point', 'score_marque', 'score_encaisse', 'debut_reel', 'fin_reel'];
+
     public function equipe_tournoi()
     {
         return $this->belongsTo(EquipeJModel::class, 'id_equipe_tournoi');
