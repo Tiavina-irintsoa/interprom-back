@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use CodeIgniter\Model;
+use EquipeTournoiJModel;
 
 class MatchJModel extends Model
 {
@@ -24,6 +25,8 @@ class MatchJModel extends Model
         'id_type',
     ];
 
+    protected $allowedFields = ['debut_reel', 'fin_reel'];
+
     public function equipeTournoi1()
     {
         return $this->belongsTo(EquipeTournoiJModel::class, 'id_equipe_tournoi_1');
@@ -41,6 +44,6 @@ class MatchJModel extends Model
 
     public function typeMatch()
     {
-        return $this->belongsTo(TypeMatchJModel::class, 'id_type');
+        return $this->belongsTo(TypeMatchModel::class, 'id_type');
     }
 }

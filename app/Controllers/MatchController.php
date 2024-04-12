@@ -3,12 +3,36 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\MatchJModel;
+use App\Models\MatchModel;
 use App\Models\VMatchLibModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 
-class MatchController extends ResourceController
-{
+class MatchController extends ResourceController{
+    protected $format = 'json';
+
+    public function create()
+    {
+        $model = new MatchModel();
+        $data = $this->request->getJSON();
+        $model->insert($data);
+        return $this->respondCreated($data);
+    }
+
+    public function update($id = null)
+    {
+        $model = new MatchModel();
+        $data = $this->request->getJSON();
+        $model->update($id, $data);
+        return $this->respond($data);
+    }
+
+    public function show($id = null)
+    {
+       
+    }
+
     // Match par discipline par tournoi selon ordered by prevision date
     public function list_match_by_discipline($id_discipline, $id_tournoi)
     {
@@ -21,5 +45,99 @@ class MatchController extends ResourceController
         ];
 
         return $this->respond($data);
+    }
+
+    public function update_score(){
+        $model = new MatchModel();
+        $data=$this->request->getJSON();
+        $match = $model->find($data->idmatch);
+        if($data->points<0 || is_numeric($data->points)==false){
+            return $this->respond(array('error'=>'Points invalides','data'=>null,'status'=>0));
+        }
+        if (!$match) {
+            return $this->respond(array('error'=>'Ce match n\'existe pas','data'=>null,'status'=>0));
+        }
+        else{
+            if($match['fin_reel']!=''){
+                return $this->respond(array('error'=>'Ce match est déjà terminé','data'=>null,'status'=>0));
+            }
+            if($match['debut_reel']==''){
+                return $this->respond(array('error'=>'Ce match n\' a pas encore commencé','data'=>null,'status'=>0));
+            }
+        }
+        
+        
+        if($data->equipe!=1 && $data->equipe!=2){
+            return $this->respond(array('error'=>'L\'equipe doit être 1 ou 2','data'=>null,'status'=>0));
+        }
+        $match=$model->updateScore($data,$match);
+        return $this->respond(array('error'=>null,'data'=>$match,'status'=>1));
+    }
+
+    // Commencer le match 
+    public function start_match($id_match)
+    {
+        $match_model = new MatchJModel();
+
+        $match = $match_model->find($id_match);
+        if (!isset($match)) {
+            return $this->respond([
+                'status' => 0,
+                'error' => "Le match que vous voulez commencer n' éxiste même pas"
+            ]);
+        }
+
+        if (isset($match['debut_reel'])) {
+            return $this->respond([
+                'status' => 0,
+                'error' => "Le match que vous voulez spécifier a déja commencé !"
+            ]);
+        }
+
+        date_default_timezone_set('Indian/Antananarivo');
+
+        $update_data = [
+            'debut_reel' => date('H:i:s')
+        ];
+
+        $match_model->update($id_match, $update_data);
+
+        return $this->respond([
+            'status' => 1,
+            'data' => 'Match commencé avec success !'
+        ]);
+    }
+
+    public function end_match($id_match)
+    {
+        $match_model = new MatchJModel();
+
+        $match = $match_model->find($id_match);
+        if (!isset($match)) {
+            return $this->respond([
+                'status' => 0,
+                'error' => "Le match que vous voulez terminer n' éxiste même pas"
+            ]);
+        }
+
+        if (isset($match['fin_reel'])) {
+            return $this->respond([
+                'status' => 0,
+                'error' => "Le match que vous voulez spécifié est déja terminer !"
+            ]);
+        }
+
+        date_default_timezone_set('Indian/Antananarivo');
+
+        $update_data = [
+            'fin_reel' => date('H:i:s')
+        ];
+
+        $match_model->update($id_match, $update_data);
+
+        return $this->respond([
+            'status' => 1,
+            'data' => 'Match terminé avec success !'
+        ]);
     }
 }

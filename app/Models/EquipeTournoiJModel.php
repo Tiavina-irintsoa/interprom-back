@@ -1,6 +1,8 @@
 <?php
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\EquipeJModel;
+use App\Models\PouleJModel;
+use CodeIgniter\Model;
 
 class EquipeTournoiJModel extends Model
 {
