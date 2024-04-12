@@ -86,3 +86,26 @@ CREATE  TABLE "public".resultat (
 	CONSTRAINT fk_resultat_match FOREIGN KEY ( id_match ) REFERENCES "public"."match"( id_match )   ,
 	CONSTRAINT fk_resultat_equipe_tournoi FOREIGN KEY ( id_equipe_tournoi ) REFERENCES "public".equipe_tournoi( id_equipe_tournoi )   
  );
+
+ALTER TABLE match ALTER COLUMN debut_reel DROP DEFAULT;
+ALTER TABLE match ALTER COLUMN fin_reel DROP DEFAULT;
+
+CREATE VIEW "public".v_resultat_par_equipe_tournoi AS  SELECT r.id_equipe_tournoi,
+    sum(r.point) AS points,
+    sum(
+        CASE
+            WHEN (r.score_marque > r.score_encaisse) THEN 1
+            ELSE 0
+        END) AS w,
+    sum(
+        CASE
+            WHEN (r.score_marque = r.score_encaisse) THEN 1
+            ELSE 0
+        END) AS n,
+    sum(
+        CASE
+            WHEN (r.score_marque < r.score_encaisse) THEN 1
+            ELSE 0
+        END) AS l
+   FROM resultat r
+  GROUP BY r.id_equipe_tournoi;
