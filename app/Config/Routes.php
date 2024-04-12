@@ -19,8 +19,13 @@ $routes->group('api', function($routes)
 // Login
 $routes->post('login','LoginController::index');
 
-// Routes qui ont besoin d authentification (id utilisateur dans headers)
+// Routes qui ont besoin d authentification
 $routes->get('api/equipes/tournoi', 'EquipeController::tournoi',['filter' => \App\Filters\TokenFilter::class]);
+
+// Import
+$routes->post('api/equipes/import', 'EquipeController::import_equipe');
+$routes->post('api/matchs/import', 'MatchController::import_match');
+
 
 
 
