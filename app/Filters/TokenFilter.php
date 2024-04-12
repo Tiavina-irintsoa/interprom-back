@@ -13,11 +13,6 @@ class TokenFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        // if (!isset($data->id_user)) {
-        //     return Services::response()
-        //         ->setStatusCode(401)
-        //         ->setJSON(['message' => 'Unauthorized']);
-        // }
         $headers = $request->getHeaders();
         if (!isset($headers['Authorization']) || !isset($headers['Id'])) {
             return Services::response()
