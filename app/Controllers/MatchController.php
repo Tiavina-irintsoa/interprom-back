@@ -7,6 +7,8 @@ use App\Models\MatchJModel;
 use App\Models\MatchModel;
 use App\Models\VMatchLibModel;
 use App\Models\EquipeTournoiJModel;
+use App\Models\DisciplineJModel;
+use App\Models\TypeMatchJModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 
@@ -34,10 +36,19 @@ class MatchController extends ResourceController{
         if(is_before($data->debut_prevision, $data->fin_prevision)==false){
             return $this->respond(array('error'=>'L\'heure de début doit être antérieure à l\'heure de fin','data'=>null,'status'=>0));
         }
+        $discpline_model = new DisciplineJModel();
+        $discipline=$discpline_model->find($data->id_discipline);
+        if(!$discipline){
+            return $this->respond(array('error'=>'Discipline invalide','data'=>null,'status'=>0));
+        }
+        $type_match_model = new TypeMatchJModel();
+        $type_match=$type_match_model->find($data->id_type);
+        if(!$type_match){
+            return $this->respond(array('error'=>'Type de match invalide','data'=>null,'status'=>0));
+        }
         $model = new MatchModel();
-        $data = $this->request->getJSON();
-        $model->insert($data);
-        return $this->respondCreated($data);
+        $match=$model->insert($data);
+        return $this->respondCreated(array('error'=>null,'data'=>$match,'status'=>1));
     }
 
     public function update($id = null)
