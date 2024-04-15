@@ -97,7 +97,12 @@ class MatchController extends ResourceController
     public function list_match_by_discipline($id_discipline, $id_tournoi)
     {
         $model = new VMatchLibModel();
-        $matchs = $model->where('id_tournoi', $id_tournoi)->where('id_discipline', $id_discipline)->findAll();
+        $matchs = $model->where('id_tournoi', $id_tournoi)
+                ->where('id_discipline', $id_discipline)
+                ->orderBy('type_match', 'desc')
+                ->orderBy('debut_prevision', 'desc')
+                ->findAll();
+
 
         $data = [
             'status' => 1,
