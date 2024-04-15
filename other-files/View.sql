@@ -104,3 +104,12 @@ CREATE OR REPLACE VIEW "public".v_all_resultat_par_equipe_tournoi AS
         COALESCE(vr.mj, 0) AS mj, vr.score_marque, vr.difference_score
         FROM equipe_tournoi et
         LEFT JOIN v_resultat_par_equipe_tournoi vr ON vr.id_equipe_tournoi = et.id_equipe_tournoi
+
+CREATE OR REPLACE VIEW v_equipe_participation_detail AS
+SELECT
+    e.id_equipe, e.nom_equipe, et.id_equipe_tournoi, et.code_equipe, d.nom as nom_discipline
+FROM
+    equipe_tournoi et
+    JOIN equipe e ON et.id_equipe = e.id_equipe
+    JOIN poule p ON et.id_poule = p.id_poule
+    JOIN discipline d ON p.id_discipline = d.id_discipline;
