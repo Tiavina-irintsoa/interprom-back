@@ -41,8 +41,8 @@ CREATE OR REPLACE VIEW v_match_lib_orderd_by_date AS
 SELECT
     m.id_match, 
     et1.id_tournoi,
-    e1.nom_equipe as nom_equipe_1,
-    e2.nom_equipe as nom_equipe_2,
+    ( et1.code_equipe || ' - ' || e1.nom_equipe )::varchar as nom_equipe_1 ,
+    ( et2.code_equipe || ' - ' || e2.nom_equipe )::varchar as nom_equipe_2,
     date_,
     debut_prevision,
     debut_reel,
@@ -52,6 +52,7 @@ SELECT
     score_equipe_1,
     score_equipe_2,
     tm.nom as nom_type_match,
+    m.id_discipline,
     m.terrain
 FROM
     match m

@@ -82,8 +82,6 @@ class PouleJController extends ResourceController
             $builder->join('equipe e2', 'e2.id_equipe = et2.id_equipe', 'left');
             $builder->where('p1.id_poule', $id_poule);
             $builder->where('p2.id_poule', $id_poule);
-            $builder->orderBy('fin_reel', 'DESC');
-            $builder->orderBy('debut_reel', 'ASC');
             $query = $builder->get();
             $result = $query->getResult();
             return $this->respond(['error' => null, 'status' => 1, 'data' => $result]);

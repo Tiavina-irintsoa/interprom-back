@@ -72,3 +72,17 @@ FROM
     JOIN tournoi t ON et.id_tournoi = t.id_tournoi
     JOIN poule p ON et.id_poule = p.id_poule
     JOIN discipline d ON p.id_discipline = d.id_discipline;
+
+-- Remove all results not in classements match
+DELETE FROM 
+	resultat 
+WHERE 
+	id_resultat 
+IN (
+	SELECT 
+		r.id_resultat 
+	FROM 
+    	resultat r
+    	JOIN match m ON r.id_match = m.id_match
+	WHERE m.id_type != 1
+);
