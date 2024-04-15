@@ -100,7 +100,7 @@ class MatchController extends ResourceController
         $matchs = $model->where('id_tournoi', $id_tournoi)
                 ->where('id_discipline', $id_discipline)
                 ->orderBy('type_match', 'desc')
-                ->orderBy('debut_prevision', 'desc')
+                ->orderBy('debut_prevision', 'asc')
                 ->findAll();
 
 
