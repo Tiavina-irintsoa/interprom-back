@@ -214,7 +214,7 @@ class MatchController extends ResourceController
             ], 500);
         }
 
-        if($match['id_type_match'] == 1)
+        if($match['id_type'] == 1)
         {
             // Insérer le résultat seulement si la mise à jour du match réussit
             $insert_resultat_success = $this->insert_resultat($match);
