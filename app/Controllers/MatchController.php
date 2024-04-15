@@ -278,7 +278,7 @@ class MatchController extends ResourceController
         $resultat = new ResultatJModel();
 
         // Récupération des points et des données de résultat pour la première équipe
-        if($match['id_discipline'] == 1)$point_1 = $this->get_point_basket($match, 1);
+        if($match['id_discipline'] == 2)$point_1 = $this->get_point_basket($match, 1);
         else $point_1 = $this->get_point_general()($match, 1);
         $first_resultat = [
             'id_equipe_tournoi' => $match['id_equipe_tournoi_1'],
@@ -289,7 +289,7 @@ class MatchController extends ResourceController
         ];
 
         // Récupération des points et des données de résultat pour la deuxième équipe
-        if($match['id_discipline'] == 1)$point_1 = $this->get_point_basket($match, 1);
+        if($match['id_discipline'] == 2)$point_1 = $this->get_point_basket($match, 1);
         else $point_1 = $this->get_point_general()($match, 2);
         $second_resultat = [
             'id_equipe_tournoi' => $match['id_equipe_tournoi_2'],
