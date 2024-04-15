@@ -238,10 +238,8 @@ class MatchController extends ResourceController
                 'error' => null
             ]);
 
-        } catch (\Exception $e) {
-            return $this->respond(['message' => 'An error occurred during the import process'], 500);
-        } catch (DatabaseException $e){
-            return $this->respond(['message' => 'An error occurred during the import process'], 500);
+        } catch (Exception $e) {
+            return $this->respond(['message' => 'An error occurred'], 500);
         }
     }
 
