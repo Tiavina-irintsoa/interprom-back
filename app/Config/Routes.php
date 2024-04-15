@@ -60,5 +60,9 @@ $routes->get('api/resultat-match/poule_(:num)', 'PouleJController::get_resultat_
 $routes->get('api/classement/poule_(:num)', 'PouleJController::get_classement_par_poule_choisi/$1');
 $routes->get('api/poule-discipline_(:num)', 'DisciplineJController::get_all_poule_by_discipline/$1');
 
-$routes->get('api/elimination-en-cours/discipline_(:num)', 'MatchJController::get_matche_en_cours_par_discipline/$1');
-$routes->get('api/elimination-a-suivre/discipline_(:num)', 'MatchJController::get_matche_a_suivre_par_discipline/$1');
+$routes->get('api/elimination-en-cours/discipline_(:num)', 'MatchJController::get_matche_eliminatoire_en_cours_par_discipline/$1');
+$routes->get('api/elimination-a-suivre/discipline_(:num)', 'MatchJController::get_matche_eliminatoire_a_suivre_par_discipline/$1');
+
+$routes->get('api/match-en-cours/discipline_(:num)', 'MatchJController::get_matche_en_cours_par_discipline/$1');
+$routes->get('api/match-a-suivre/discipline_(:num)', 'MatchJController::get_matche_a_suivre_par_discipline/$1');
+$routes->get('api/match-classement/discipline_(:num)', 'DisciplineJController::get_classement_par_discipline_choisi/$1');

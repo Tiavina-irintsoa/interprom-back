@@ -248,7 +248,7 @@ class MatchController extends ResourceController
             if($equipe_1_or_2 == 1)return 0;
             else return 3;
         }else{
-            return 0;
+            return 1;
         }
 
     }
