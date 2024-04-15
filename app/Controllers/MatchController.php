@@ -219,15 +219,15 @@ class MatchController extends ResourceController
             {
                 // Insérer le résultat seulement si la mise à jour du match réussit
                 $insert_resultat_success = $this->insert_resultat($match);
-            }
 
-            if (!$insert_resultat_success) {
-                $this->db->transRollback(); // Annule la transaction
-                return $this->respond([
-                    'status' => 0,
-                    'error' => "Échec de l'insertion des résultats",
-                    'data' => null
-                ], 500);
+                if (!$insert_resultat_success) {
+                    $this->db->transRollback(); // Annule la transaction
+                    return $this->respond([
+                        'status' => 0,
+                        'error' => "Échec de l'insertion des résultats",
+                        'data' => null
+                    ], 500);
+                }
             }
 
             $this->db->transCommit(); // Valide la transaction
