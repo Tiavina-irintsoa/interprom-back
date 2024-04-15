@@ -1,0 +1,28 @@
+WARNING - 2024-04-15 08:16:03 --> [DEPRECATED] Creation of dynamic property App\Controllers\MatchController::$db is deprecated in APPPATH/Controllers/MatchController.php on line 176.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->end_match('2')
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MatchController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(62): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')
+CRITICAL - 2024-04-15 11:16:03 --> ErrorException: Undefined variable $point_2
+[Method: GET, Route: api/end-match/2]
+in APPPATH/Controllers/MatchController.php on line 297.
+ 1 APPPATH/Controllers/MatchController.php(297): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/MatchController.php(220): App\Controllers\MatchController->insert_resultat()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->end_match()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(62): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')
+WARNING - 2024-04-15 08:16:50 --> [DEPRECATED] Creation of dynamic property App\Controllers\MatchController::$db is deprecated in APPPATH/Controllers/MatchController.php on line 176.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\MatchController->end_match('2')
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MatchController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(62): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/home/johan/Documents/Prepas/Interprom-2024/interprom-back/public/index.php')

@@ -173,69 +173,76 @@ class MatchController extends ResourceController
 
     public function end_match($id_match)
     {
-        $this->db = \Config\Database::connect();
-        $this->db->transStart(); // Démarre la transaction
+        try{
+            $this->db = \Config\Database::connect();
+            $this->db->transStart(); // Démarre la transaction
 
-        $match_model = new MatchJModel();
+            $match_model = new MatchJModel();
 
-        $match = $match_model->find($id_match);
-        if (!isset($match)) {
-            $this->db->transRollback(); // Annule la transaction
+            $match = $match_model->find($id_match);
+            if (!isset($match)) {
+                $this->db->transRollback(); // Annule la transaction
+                return $this->respond([
+                    'status' => 0,
+                    'error' => "Le match que vous voulez terminer n'existe même pas",
+                    'data' => null
+                ], 403);
+            }
+
+            if (isset($match['fin_reel'])) {
+                $this->db->transRollback(); // Annule la transaction
+                return $this->respond([
+                    'status' => 0,
+                    'error' => "Le match que vous voulez spécifier est déjà terminé !",
+                    'data' => null
+                ], 403);
+            }
+
+            date_default_timezone_set('Indian/Antananarivo');
+
+            $update_data = [
+                'fin_reel' => date('H:i:s')
+            ];
+
+            $update_success = $match_model->update($id_match, $update_data);
+
+            if (!$update_success) {
+                $this->db->transRollback(); // Annule la transaction
+                return $this->respond([
+                    'status' => 0,
+                    'error' => "Échec de la mise à jour du match",
+                    'data' => null
+                ], 500);
+            }
+
+            if($match['id_type'] == 1)
+            {
+                // Insérer le résultat seulement si la mise à jour du match réussit
+                $insert_resultat_success = $this->insert_resultat($match);
+            }
+
+            if (!$insert_resultat_success) {
+                $this->db->transRollback(); // Annule la transaction
+                return $this->respond([
+                    'status' => 0,
+                    'error' => "Échec de l'insertion des résultats",
+                    'data' => null
+                ], 500);
+            }
+
+            $this->db->transCommit(); // Valide la transaction
+
             return $this->respond([
-                'status' => 0,
-                'error' => "Le match que vous voulez terminer n'existe même pas",
-                'data' => null
-            ], 403);
+                'status' => 1,
+                'data' => 'Match terminé avec succès !',
+                'error' => null
+            ]);
+
+        } catch (\Exception $e) {
+            return $this->respond(['message' => 'An error occurred during the import process'], 500);
+        } catch (DatabaseException $e){
+            return $this->respond(['message' => 'An error occurred during the import process'], 500);
         }
-
-        if (isset($match['fin_reel'])) {
-            $this->db->transRollback(); // Annule la transaction
-            return $this->respond([
-                'status' => 0,
-                'error' => "Le match que vous voulez spécifier est déjà terminé !",
-                'data' => null
-            ], 403);
-        }
-
-        date_default_timezone_set('Indian/Antananarivo');
-
-        $update_data = [
-            'fin_reel' => date('H:i:s')
-        ];
-
-        $update_success = $match_model->update($id_match, $update_data);
-
-        if (!$update_success) {
-            $this->db->transRollback(); // Annule la transaction
-            return $this->respond([
-                'status' => 0,
-                'error' => "Échec de la mise à jour du match",
-                'data' => null
-            ], 500);
-        }
-
-        if($match['id_type'] == 1)
-        {
-            // Insérer le résultat seulement si la mise à jour du match réussit
-            $insert_resultat_success = $this->insert_resultat($match);
-        }
-
-        if (!$insert_resultat_success) {
-            $this->db->transRollback(); // Annule la transaction
-            return $this->respond([
-                'status' => 0,
-                'error' => "Échec de l'insertion des résultats",
-                'data' => null
-            ], 500);
-        }
-
-        $this->db->transCommit(); // Valide la transaction
-
-        return $this->respond([
-            'status' => 1,
-            'data' => 'Match terminé avec succès !',
-            'error' => null
-        ]);
     }
 
     public function get_point_basket($match, $equipe_1_or_2)
@@ -279,7 +286,7 @@ class MatchController extends ResourceController
 
         // Récupération des points et des données de résultat pour la première équipe
         if($match['id_discipline'] == 2)$point_1 = $this->get_point_basket($match, 1);
-        else $point_1 = $this->get_point_general()($match, 1);
+        else $point_1 = $this->get_point_general($match, 1);
         $first_resultat = [
             'id_equipe_tournoi' => $match['id_equipe_tournoi_1'],
             'id_match' => $match['id_match'],
@@ -289,8 +296,8 @@ class MatchController extends ResourceController
         ];
 
         // Récupération des points et des données de résultat pour la deuxième équipe
-        if($match['id_discipline'] == 2)$point_1 = $this->get_point_basket($match, 1);
-        else $point_1 = $this->get_point_general()($match, 2);
+        if($match['id_discipline'] == 2)$point_2 = $this->get_point_basket($match, 2);
+        else $point_2 = $this->get_point_general($match, 2);
         $second_resultat = [
             'id_equipe_tournoi' => $match['id_equipe_tournoi_2'],
             'id_match' => $match['id_match'],
