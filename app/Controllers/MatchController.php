@@ -214,11 +214,8 @@ class MatchController extends ResourceController
             ], 500);
         }
 
-        if($match['id_type_match'] == 1)
-        {
-            // Insérer le résultat seulement si la mise à jour du match réussit
-            $insert_resultat_success = $this->insert_resultat($match);
-        }
+        // Insérer le résultat seulement si la mise à jour du match réussit
+        $insert_resultat_success = $this->insert_resultat($match);
 
         if (!$insert_resultat_success) {
             $this->db->transRollback(); // Annule la transaction
@@ -238,25 +235,8 @@ class MatchController extends ResourceController
         ]);
     }
 
-    public function get_point_basket($match, $equipe_1_or_2)
-    {
-        if($match['score_equipe_1'] > $match['score_equipe_2'])
-        {
-            if($equipe_1_or_2 == 1)return 3;
-            else return 1;
-        }
-        else if($match['score_equipe_1'] < $match['score_equipe_2'])
-        {
-            if($equipe_1_or_2 == 1)return 1;
-            else return 3;
-        }else{
-            return 0;
-        }
 
-    }
-
-    
-    public function get_point_general($match, $equipe_1_or_2)
+    public function get_point($match, $equipe_1_or_2)
     {
         if($match['score_equipe_1'] > $match['score_equipe_2'])
         {
@@ -278,8 +258,7 @@ class MatchController extends ResourceController
         $resultat = new ResultatJModel();
 
         // Récupération des points et des données de résultat pour la première équipe
-        if($match['id_discipline'] == 2)$point_1 = $this->get_point_basket($match, 1);
-        else $point_1 = $this->get_point_general()($match, 1);
+        $point_1 = $this->get_point($match, 1);
         $first_resultat = [
             'id_equipe_tournoi' => $match['id_equipe_tournoi_1'],
             'id_match' => $match['id_match'],
@@ -289,8 +268,7 @@ class MatchController extends ResourceController
         ];
 
         // Récupération des points et des données de résultat pour la deuxième équipe
-        if($match['id_discipline'] == 2)$point_1 = $this->get_point_basket($match, 1);
-        else $point_1 = $this->get_point_general()($match, 2);
+        $point_2 = $this->get_point($match, 2);
         $second_resultat = [
             'id_equipe_tournoi' => $match['id_equipe_tournoi_2'],
             'id_match' => $match['id_match'],
