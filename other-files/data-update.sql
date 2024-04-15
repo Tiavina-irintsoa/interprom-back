@@ -10,4 +10,4 @@ and score_marque < score_encaisse
 alter table utilisateur add column profil varchar(200);
 update utilisateur set profil = 'ADMIN';
 
-
+alter table utilisateur drop column profil;
