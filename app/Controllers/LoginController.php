@@ -26,8 +26,7 @@ class LoginController extends ResourceController
             $payload = [
                 'id' => $user['id'],
                 'nom' => $user['nom'],
-                'exp' => strtotime('+1 day'),
-                'profil' => $user['profil']
+                'exp' => strtotime('+1 day')
             ];
             $jwt = JWT::encode($payload, getenv('JWT_SECRET'), 'HS256');
             return $this->respond(['message' => 'Authentification réussie','token' => $jwt], 200);

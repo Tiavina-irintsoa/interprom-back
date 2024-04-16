@@ -134,4 +134,13 @@ class MatchJController extends ResourceController
 
         return $this->respond(['error' => null, 'status' => 8989, 'data' => $result]);
     }
+    public function get_matche_termine_par_discipline_par_equipe($id_discipline = null, $id_equipe = null): ResponseInterface
+    {
+        $db = \Config\Database::connect();
+        $sql = "SELECT m.id_match, et1.id_tournoi, e1.nom_equipe AS nom_equipe_1, e2.nom_equipe AS nom_equipe_2, m.date_, d.id_discipline, m.debut_prevision, m.debut_reel, m.fin_prevision, m.fin_reel, d.nom AS nom_discipline, m.score_equipe_1, m.score_equipe_2, tm.nom AS nom_type_match, m.terrain FROM match m JOIN equipe_tournoi et1 ON m.id_equipe_tournoi_1 = et1.id_equipe_tournoi JOIN equipe e1 ON et1.id_equipe = e1.id_equipe JOIN equipe_tournoi et2 ON m.id_equipe_tournoi_2 = et2.id_equipe_tournoi JOIN equipe e2 ON et2.id_equipe = e2.id_equipe JOIN discipline d ON m.id_discipline = d.id_discipline JOIN type_match tm ON m.id_type = tm.id_type_match WHERE m.debut_reel IS not  NULL AND m.fin_reel IS not  NULL and d.id_discipline=".$id_discipline.' and (e1.id_equipe = '.$id_equipe.' or (e2.id_equipe = '.$id_equipe.')) order by m.debut_reel desc';
+        $query = $db->query($sql);
+        $result = $query->getResult();
+
+        return $this->respond(['error' => null, 'status' => 8989, 'data' => $result]);
+    }
 }
