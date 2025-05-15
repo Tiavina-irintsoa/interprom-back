@@ -90,15 +90,16 @@ class PouleJController extends ResourceController
         }
     }
 
-    public function get_classement_par_poule_choisi($id_poule = null): ResponseInterface
+    public function get_classement_par_poule_choisi($id_poule = null, $id_tournoi = 1): ResponseInterface
     {
         try {
             $db = \Config\Database::connect();
-            $builder = $db->table('v_all_resultat_par_equipe_tournoi vr');
+            $builder = $db->table('v_resultat_par_equipe_tournoi_view_vaovao vr');
             $builder->select('vr.*, e.*');
             $builder->join('equipe_tournoi et', 'et.id_equipe_tournoi = vr.id_equipe_tournoi');
             $builder->join('equipe e', 'e.id_equipe = et.id_equipe');
             $builder->join('poule p', 'p.id_poule = et.id_poule');
+            $builder->where('et.id_tournoi', $id_tournoi);
             $builder->where('et.id_poule', $id_poule);
             $builder->where('et.id_poule', $id_poule);
             $builder->orderBy('vr.points', 'DESC');
