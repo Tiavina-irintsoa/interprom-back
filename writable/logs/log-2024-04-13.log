@@ -1,0 +1,37 @@
+ERROR - 2024-04-13 05:02:37 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  authentification par mot de passe �chou�e pour l'utilisateur  � madaebvx_ituser � in C:\Users\minoh\ITU\L3\S6\itu-interprom\interprom-back\system\Database\Postgre\Connection.php:77
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_connect(): U...', 'C:\\Users\\minoh\\...', 77)
+#1 C:\Users\minoh\ITU\L3\S6\itu-interprom\interprom-back\system\Database\Postgre\Connection.php(77): pg_connect('host=127.0.0.1 ...')
+#2 C:\Users\minoh\ITU\L3\S6\itu-interprom\interprom-back\system\Database\BaseConnection.php(420): CodeIgniter\Database\Postgre\Connection->connect(false)
+#3 C:\Users\minoh\ITU\L3\S6\itu-interprom\interprom-back\system\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+#4 C:\Users\minoh\ITU\L3\S6\itu-interprom\interprom-back\system\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM "...', Array, false)
+#5 C:\Users\minoh\ITU\L3\S6\itu-interprom\interprom-back\system\Model.php(318): CodeIgniter\Database\BaseBuilder->get()
+#6 C:\Users\minoh\ITU\L3\S6\itu-interprom\interprom-back\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#7 C:\Users\minoh\ITU\L3\S6\itu-interprom\interprom-back\app\Controllers\LoginController.php(24): CodeIgniter\BaseModel->first()
+#8 C:\Users\minoh\ITU\L3\S6\itu-interprom\interprom-back\system\CodeIgniter.php(933): App\Controllers\LoginController->index()
+#9 C:\Users\minoh\ITU\L3\S6\itu-interprom\interprom-back\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+#10 C:\Users\minoh\ITU\L3\S6\itu-interprom\interprom-back\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\Users\minoh\ITU\L3\S6\itu-interprom\interprom-back\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 C:\Users\minoh\ITU\L3\S6\itu-interprom\interprom-back\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\Users\minoh\ITU\L3\S6\itu-interprom\interprom-back\public\index.php(62): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\Users\minoh\ITU\L3\S6\itu-interprom\interprom-back\system\Commands\Server\rewrite.php(49): require_once('C:\\Users\\minoh\\...')
+#15 {main}
+CRITICAL - 2024-04-13 05:02:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [Postgre]: pg_connect(): Unable to connect to PostgreSQL server: FATAL:  authentification par mot de passe �chou�e pour l'utilisateur  � madaebvx_ituser �
+[Method: POST, Route: login]
+in SYSTEMPATH\Database\BaseConnection.php on line 456.
+ 1 SYSTEMPATH\Database\BaseConnection.php(603): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM "utilisateur"
+WHERE "nom" = :nom:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(318): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\LoginController.php(24): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\LoginController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoginController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(62): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\Users\\minoh\\ITU\\L3\\S6\\itu-interprom\\interprom-back\\public\\index.php')
