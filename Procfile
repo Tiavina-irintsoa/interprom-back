@@ -1,1 +1,1 @@
-web: composer install && php spark serve --port $PORT 
+web: composer install && php spark serve --host 0.0.0.0 --port $PORT 
