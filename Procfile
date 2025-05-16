@@ -1,1 +1,1 @@
-web: vendor/bin/php spark serve --port $PORT 
+web: composer install && vendor/bin/php spark serve --port $PORT 
