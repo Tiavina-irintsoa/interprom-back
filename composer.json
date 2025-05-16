@@ -50,7 +50,9 @@
   },
   "autoload": {
     "psr-4": {
-      "CodeIgniter\\": "system/"
+      "CodeIgniter\\": "system/",
+      "Kint\\": "system/ThirdParty/Kint/",
+      "Laminas\\": "system/ThirdParty/"
     },
     "exclude-from-classmap": [
       "**/Database/Migrations/**"
