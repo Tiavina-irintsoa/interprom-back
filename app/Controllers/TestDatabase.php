@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use CodeIgniter\Database\Exceptions\DatabaseException;
+use Exception;
 
 
 class TestDatabase extends Controller
@@ -14,7 +15,7 @@ class TestDatabase extends Controller
             
             $db = \Config\Database::connect();
             $query = $db->query('SELECT 1');
-            return $this->response->setBody($query->row());
+            return $this->response->setBody(json_encode($query->getRow()));
         } catch (Exception $e) {
             return $this->response->setBody($e->getMessage());
         }

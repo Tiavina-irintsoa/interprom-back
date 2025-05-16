@@ -1,2 +1,29 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Composer
+/vendor/
+
+# CodeIgniter
+/writable/
+/public/index.php
+/public/.htaccess
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 *.json

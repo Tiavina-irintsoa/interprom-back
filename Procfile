@@ -1,0 +1,1 @@
+web: vendor/bin/php spark serve --port $PORT 
