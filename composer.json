@@ -10,7 +10,7 @@
     "slack": "https://codeigniterchat.slack.com"
   },
   "require": {
-    "php": "^8.2",
+    "php": "^8.1",
     "ext-intl": "*",
     "ext-mbstring": "*",
     "firebase/php-jwt": "^6.10",
@@ -50,12 +50,17 @@
   },
   "autoload": {
     "psr-4": {
-      "CodeIgniter\\": "system/",
-      "Kint\\": "system/ThirdParty/Kint/",
-      "Laminas\\": "system/ThirdParty/"
+      "CodeIgniter\\": "system/"
     },
     "exclude-from-classmap": [
-      "**/Database/Migrations/**"
+      "**/Database/Migrations/**",
+      "system/ThirdParty/Kint/**",
+      "system/ThirdParty/PSR/**",
+      "system/ThirdParty/Escaper/**",
+      "system/ThirdParty/PSR/Log/**"
+    ],
+    "classmap": [
+      "system/ThirdParty/PSR/Log/LoggerAwareInterface.php"
     ]
   },
   "config": {
